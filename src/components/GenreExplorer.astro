@@ -265,6 +265,21 @@ const roots = genres.map((g) => ({ name: g.n, branch: Array.isArray(g.c) && g.c.
       grid-template-columns: 1fr;
     }
   }
+
+  /* On a touch screen the explorer fills most of the view, so its scrolling
+     lists would take every swipe meant for the page. Until the explorer is
+     tapped they don't scroll by touch (the demo still scrolls them from
+     script); once it is, the tree scrolls and hands off to the page at
+     either end. */
+  @media (hover: none) and (pointer: coarse) {
+    .explorer__body {
+      overscroll-behavior: auto;
+    }
+
+    .explorer:not(.is-engaged) :is(.explorer__body, .explorer__results) {
+      overflow-y: hidden;
+    }
+  }
 </style>
 
 <script>
@@ -442,7 +457,13 @@ const roots = genres.map((g) => ({ name: g.n, branch: Array.isArray(g.c) && g.c.
       const buttons = results.querySelectorAll<HTMLButtonElement>("button");
       buttons.forEach((b, j) => b.setAttribute("aria-selected", String(j === i)));
       active = i;
-      buttons[i]?.scrollIntoView({ block: "nearest" });
+      // Scrolls the list alone; scrollIntoView would also move the page.
+      const button = buttons[i];
+      if (!button) return;
+      const r = button.getBoundingClientRect();
+      const box = results.getBoundingClientRect();
+      if (r.top < box.top) results.scrollTop += r.top - box.top;
+      else if (r.bottom > box.bottom) results.scrollTop += r.bottom - box.bottom;
     }
 
     input.addEventListener("input", async () => {
@@ -517,5 +538,12 @@ const roots = genres.map((g) => ({ name: g.n, branch: Array.isArray(g.c) && g.c.
     ["pointerdown", "keydown"].forEach((type) =>
       root.addEventListener(type, () => (touched = true), { passive: true }),
     );
+
+    // A tap lets the lists take touch scrolling (see the styles); scrolling
+    // the explorer out of view gives swipes back to the page.
+    root.addEventListener("click", () => root.classList.add("is-engaged"));
+    new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) root.classList.remove("is-engaged");
+    }).observe(root);
   }
 </script>
