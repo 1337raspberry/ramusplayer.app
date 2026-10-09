@@ -1,0 +1,149 @@
+---
+import { Picture } from "astro:assets";
+import heroShot from "../assets/shots/hero-window.png";
+import Icon from "./Icon.astro";
+import { REPO_URL } from "../lib/release";
+
+interface Props {
+  version: string;
+}
+
+const { version } = Astro.props;
+---
+
+<section class="hero" id="top" data-tint="#2d3866 #6e6264">
+  <div class="wrap hero__copy">
+    <h1 class="hero__title">
+      a <span class="nowrap">genre-first</span> music player for plex. 
+    </h1>
+    <p class="hero__lede">
+      built from the genre and style tags plex already fetches. free, open source, and on (probably) every platform you own.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--primary btn--lg" href="#download" data-platform-cta="long">
+        <Icon name="download" />
+        <span data-label>download ramus</span>
+      </a>
+      <a class="btn btn--lg" href={REPO_URL}>
+        <Icon name="github" />
+        <span>view on github</span>
+      </a>
+    </div>
+    <p class="hero__meta mono" data-platform-meta>
+      v{version} · macOS, windows, linux, iOS, android ·{" "}
+      <a href="#download">all downloads</a>
+    </p>
+  </div>
+
+  <div class="hero__stage wrap">
+    <div class="window hero__window">
+      <Picture
+        src={heroShot}
+        formats={["avif", "webp"]}
+        widths={[800, 1240, 1800, 2480]}
+        sizes="(min-width: 1290px) 1240px, calc(100vw - 2rem)"
+        alt="ramus on macOS: the genre tree open at Rock › Post-Rock in the sidebar, a grid of post-rock album covers, and This Will Destroy You playing with its waveform, all tinted indigo from the album art."
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-top: clamp(8rem, 16vw, 11.5rem);
+    text-align: center;
+  }
+
+  .hero__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__title {
+    font-size: var(--step-4);
+    font-weight: 750;
+    max-width: 15ch;
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+  }
+
+  .hero__title .more {
+    color: var(--ink-3);
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+
+  .hero__lede {
+    margin-top: 1.5rem;
+    max-width: 46ch;
+    color: var(--ink-2);
+    font-size: var(--step-1);
+    line-height: 1.45;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2.25rem;
+  }
+
+  .hero__meta {
+    margin-top: 1.1rem;
+    color: var(--ink-3);
+    font-size: 0.8rem;
+    letter-spacing: 0.01em;
+  }
+
+  .hero__meta a {
+    color: var(--ink-2);
+  }
+
+  .hero__stage {
+    margin-top: clamp(3rem, 7vw, 5rem);
+    perspective: 1800px;
+  }
+
+  .hero__window {
+    transform-origin: 50% 0%;
+  }
+
+  /* The window starts tipped back and settles flat as it scrolls up into
+     view; without scroll timelines it simply sits flat. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .hero__window {
+        animation: settle linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 45%;
+      }
+
+      @keyframes settle {
+        from {
+          transform: rotateX(24deg) scale(0.9);
+          filter: brightness(0.75);
+        }
+        to {
+          transform: none;
+          filter: none;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero__actions {
+      flex-direction: column;
+      align-self: stretch;
+    }
+    .hero__actions .btn {
+      justify-content: center;
+    }
+  }
+</style>

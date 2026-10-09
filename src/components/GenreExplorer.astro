@@ -1,0 +1,521 @@
+---
+import genres from "../data/genres.json";
+import Icon from "./Icon.astro";
+
+const roots = genres.map((g) => ({ name: g.n, branch: Array.isArray(g.c) && g.c.length > 0 }));
+---
+
+<section class="section explorer-section" id="features" data-tint="#484c72 #2b312e">
+  <div class="wrap explorer-grid">
+    <div class="explorer-copy">
+      <h2 class="headline">
+        1,579 genres, up to six levels deep. <span class="more">no retagging required.</span>
+      </h2>
+      <p class="lede">
+        ramus files every album under the genre and style tags plex already fetches in a curated and intuitive heirarchy. prefer to use your own pristinely curated tags? np
+        you can build your own heirarchy in the bundled editor.
+      </p>
+    </div>
+
+    <div class="explorer window" data-explorer>
+      <div class="explorer__bar">
+        <Icon name="search" class="explorer__icon" />
+        <label class="visually-hidden" for="genre-search">find a genre in the tree</label>
+        <input
+          id="genre-search"
+          class="explorer__input"
+          type="search"
+          placeholder="find a genre, e.g. shoegaze"
+          autocomplete="off"
+          spellcheck="false"
+          aria-controls="genre-results"
+          aria-describedby="genre-status"
+        />
+      </div>
+      <p class="visually-hidden" id="genre-status" aria-live="polite" data-status></p>
+      <ol class="explorer__results" id="genre-results" hidden data-results></ol>
+      <div class="explorer__body" data-body>
+        <ul class="tree" data-tree>
+          {
+            roots.map((r) => (
+              <li>
+                <button
+                  class="row"
+                  style="--depth: 0"
+                  data-path={r.name}
+                  aria-expanded={r.branch ? "false" : undefined}
+                >
+                  <span class="row__chev" aria-hidden="true">
+                    {r.branch && <Icon name="chevron" />}
+                  </span>
+                  <span class="row__name">{r.name}</span>
+                </button>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <p class="explorer__foot">^ the real genre heirarchy ramus ships with. don't yell at me for my taxonomical choices pls</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .explorer-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: center;
+  }
+
+  .explorer-copy .headline {
+    max-width: 15ch;
+  }
+
+  .explorer {
+    display: flex;
+    flex-direction: column;
+    background: color-mix(in oklab, var(--tint-a) 22%, #121118);
+    transition: background-color 1.4s var(--ease-out);
+  }
+
+  .explorer__bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .explorer__bar :global(.explorer__icon) {
+    position: absolute;
+    left: 28px;
+    width: 18px;
+    height: 18px;
+    color: var(--ink-3);
+    pointer-events: none;
+  }
+
+  .explorer__input {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 14px 0 42px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: rgb(0 0 0 / 0.25);
+    color: var(--ink);
+    font: 400 1rem/1 var(--font-body);
+    caret-color: var(--coral);
+    transition: border-color 0.2s var(--ease-out);
+  }
+
+  .explorer__input::placeholder {
+    color: var(--ink-3);
+  }
+
+  .explorer__input:focus {
+    outline: none;
+    border-color: color-mix(in oklab, var(--coral) 70%, transparent);
+  }
+
+  .explorer__input::-webkit-search-cancel-button {
+    filter: grayscale(1) brightness(1.6);
+  }
+
+  .explorer__results {
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    border-bottom: 1px solid var(--line);
+    max-height: 236px;
+    overflow: auto;
+  }
+
+  .explorer__results :global(button) {
+    display: grid;
+    width: 100%;
+    gap: 2px;
+    padding: 8px 10px;
+    border: 0;
+    border-radius: 8px;
+    background: none;
+    color: var(--ink);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .explorer__results :global(button:hover),
+  .explorer__results :global(button[aria-selected="true"]) {
+    background: rgb(244 242 245 / 0.08);
+  }
+
+  .explorer__results :global(.hit) {
+    font-size: 0.98rem;
+  }
+
+  .explorer__results :global(.hit mark) {
+    background: none;
+    color: var(--coral);
+  }
+
+  .explorer__results :global(.trail) {
+    color: var(--ink-3);
+    font-size: 0.8rem;
+  }
+
+  .explorer__results :global(.empty) {
+    padding: 10px;
+    color: var(--ink-3);
+    font-size: 0.92rem;
+  }
+
+  .explorer__body {
+    height: clamp(340px, 46vh, 480px);
+    overflow: auto;
+    padding: 8px 6px 12px;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(244 242 245 / 0.2) transparent;
+    overscroll-behavior: contain;
+  }
+
+  .tree,
+  .tree :global(ul) {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tree :global(ul) {
+    position: relative;
+  }
+
+  /* Guide line for each nested level, under the parent's chevron. */
+  .tree :global(ul)::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    bottom: 10px;
+    left: calc(var(--depth, 0) * 18px + 19px);
+    border-left: 1px solid var(--line);
+  }
+
+  .tree :global(.row) {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 34px;
+    padding: 0 10px 0 calc(var(--depth) * 18px + 10px);
+    border: 0;
+    border-radius: 7px;
+    background: none;
+    color: var(--ink-2);
+    font: 400 0.97rem/1.2 var(--font-body);
+    text-align: left;
+    cursor: pointer;
+    transition:
+      background-color 0.15s var(--ease-out),
+      color 0.15s var(--ease-out);
+  }
+
+  .tree :global(.row:hover) {
+    background: rgb(244 242 245 / 0.06);
+    color: var(--ink);
+  }
+
+  .tree :global(.row[aria-expanded="true"]) {
+    color: var(--ink);
+  }
+
+  .tree :global(.row[aria-current="true"]) {
+    background: color-mix(in oklab, var(--coral) 16%, transparent);
+    color: var(--coral);
+    font-weight: 550;
+  }
+
+  .tree :global(.row__chev) {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    color: var(--ink-3);
+  }
+
+  .tree :global(.row__chev svg) {
+    width: 14px;
+    height: 14px;
+    transition: rotate 0.25s var(--ease-out);
+  }
+
+  .tree :global(.row[aria-expanded="true"] .row__chev svg) {
+    rotate: 90deg;
+  }
+
+  .explorer__foot {
+    padding: 10px 16px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-3);
+    font-size: 0.78rem;
+  }
+
+  @media (max-width: 900px) {
+    .explorer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  interface Genre {
+    n: string;
+    a?: string[];
+    c?: Genre[];
+  }
+
+  interface Entry {
+    name: string;
+    aka: string[];
+    path: string[];
+  }
+
+  const CHEVRON =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6.5 5.5 5.5-5.5 5.5"/></svg>';
+
+  const root = document.querySelector<HTMLElement>("[data-explorer]");
+  if (root) setup(root);
+
+  function setup(root: HTMLElement) {
+    const input = root.querySelector<HTMLInputElement>("input")!;
+    const results = root.querySelector<HTMLOListElement>("[data-results]")!;
+    const status = root.querySelector<HTMLElement>("[data-status]")!;
+    const body = root.querySelector<HTMLElement>("[data-body]")!;
+    const tree = root.querySelector<HTMLUListElement>("[data-tree]")!;
+
+    const byPath = new Map<string, Genre>();
+    const index: Entry[] = [];
+    let loading: Promise<void> | null = null;
+    let touched = false;
+    let active = -1;
+    let hits: Entry[] = [];
+
+    const key = (path: string[]) => path.join("\u001f");
+
+    function load() {
+      loading ??= fetch("/genres.json")
+        .then((r) => r.json() as Promise<Genre[]>)
+        .then((data) => {
+          const walk = (nodes: Genre[], trail: string[]) => {
+            for (const g of nodes) {
+              const path = [...trail, g.n];
+              byPath.set(key(path), g);
+              index.push({ name: g.n, aka: g.a ?? [], path });
+              if (g.c) walk(g.c, path);
+            }
+          };
+          walk(data, []);
+        });
+      return loading;
+    }
+
+    function rowFor(path: string[]) {
+      return tree.querySelector<HTMLButtonElement>(`.row[data-path="${CSS.escape(key(path))}"]`);
+    }
+
+    // Root rows are rendered with plain names; give them the same path key.
+    tree.querySelectorAll<HTMLButtonElement>(".row").forEach((b) => (b.dataset.path = key([b.dataset.path!])));
+
+    function renderChildren(row: HTMLButtonElement, path: string[]) {
+      const li = row.parentElement!;
+      let list = li.querySelector<HTMLUListElement>(":scope > ul");
+      if (list) return list;
+      const node = byPath.get(key(path));
+      list = document.createElement("ul");
+      list.style.setProperty("--depth", String(path.length - 1));
+      for (const child of node?.c ?? []) {
+        const childPath = [...path, child.n];
+        const item = document.createElement("li");
+        const btn = document.createElement("button");
+        btn.className = "row";
+        btn.style.setProperty("--depth", String(childPath.length - 1));
+        btn.dataset.path = key(childPath);
+        const branch = !!child.c?.length;
+        if (branch) btn.setAttribute("aria-expanded", "false");
+        btn.innerHTML = `<span class="row__chev" aria-hidden="true">${branch ? CHEVRON : ""}</span><span class="row__name"></span>`;
+        btn.querySelector(".row__name")!.textContent = child.n;
+        item.append(btn);
+        list.append(item);
+      }
+      li.append(list);
+      return list;
+    }
+
+    async function toggle(row: HTMLButtonElement, open?: boolean) {
+      const path = row.dataset.path!.split("\u001f");
+      if (!row.hasAttribute("aria-expanded")) return;
+      await load();
+      const expand = open ?? row.getAttribute("aria-expanded") !== "true";
+      const list = renderChildren(row, path);
+      row.setAttribute("aria-expanded", String(expand));
+      list.hidden = !expand;
+    }
+
+    function select(row: HTMLButtonElement) {
+      tree.querySelectorAll('.row[aria-current="true"]').forEach((r) => r.removeAttribute("aria-current"));
+      row.setAttribute("aria-current", "true");
+    }
+
+    async function reveal(path: string[]) {
+      await load();
+      for (let i = 1; i < path.length; i++) {
+        const row = rowFor(path.slice(0, i));
+        if (row) await toggle(row, true);
+      }
+      const target = rowFor(path);
+      if (!target) return;
+      select(target);
+      const offset = target.getBoundingClientRect().top - body.getBoundingClientRect().top + body.scrollTop;
+      const top = offset - body.clientHeight / 2 + target.offsetHeight / 2;
+      body.scrollTo({ top, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    }
+
+    tree.addEventListener("click", (e) => {
+      const row = (e.target as Element).closest<HTMLButtonElement>(".row");
+      if (!row) return;
+      touched = true;
+      select(row);
+      toggle(row);
+    });
+
+    const escape = (s: string) => s.replace(/[&<>"]/g, (c) => `&#${c.charCodeAt(0)};`);
+
+    function highlight(name: string, q: string) {
+      const i = name.toLowerCase().indexOf(q);
+      if (i < 0) return escape(name);
+      return `${escape(name.slice(0, i))}<mark>${escape(name.slice(i, i + q.length))}</mark>${escape(name.slice(i + q.length))}`;
+    }
+
+    function search(raw: string) {
+      const q = raw.trim().toLowerCase();
+      active = -1;
+      if (!q) {
+        results.hidden = true;
+        status.textContent = "";
+        return;
+      }
+      const score = (e: Entry) => {
+        const n = e.name.toLowerCase();
+        if (n === q) return 0;
+        if (n.startsWith(q)) return 1;
+        if (n.includes(q)) return 2;
+        if (e.aka.some((a) => a.toLowerCase().includes(q))) return 3;
+        return -1;
+      };
+      hits = index
+        .map((e) => ({ e, s: score(e) }))
+        .filter((x) => x.s >= 0)
+        .sort((a, b) => a.s - b.s || a.e.path.length - b.e.path.length || a.e.name.localeCompare(b.e.name))
+        .slice(0, 8)
+        .map((x) => x.e);
+
+      results.hidden = false;
+      results.innerHTML = hits.length
+        ? hits
+            .map(
+              (e, i) =>
+                `<li><button type="button" id="hit-${i}" aria-selected="false" data-i="${i}"><span class="hit">${highlight(e.name, q)}</span><span class="trail">${escape(e.path.join(" › "))}</span></button></li>`,
+            )
+            .join("")
+        : `<li class="empty">no genre called “${escape(raw.trim())}” in the default tree. you could add it to your own.</li>`;
+      status.textContent = hits.length ? `${hits.length} matching genres` : "no matching genres";
+    }
+
+    function pick(i: number) {
+      const hit = hits[i];
+      if (!hit) return;
+      results.hidden = true;
+      reveal(hit.path);
+    }
+
+    function mark(i: number) {
+      const buttons = results.querySelectorAll<HTMLButtonElement>("button");
+      buttons.forEach((b, j) => b.setAttribute("aria-selected", String(j === i)));
+      active = i;
+      buttons[i]?.scrollIntoView({ block: "nearest" });
+    }
+
+    input.addEventListener("input", async () => {
+      touched = true;
+      await load();
+      search(input.value);
+    });
+
+    input.addEventListener("keydown", (e) => {
+      if (results.hidden || !hits.length) return;
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        mark(Math.min(active + 1, hits.length - 1));
+      } else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        mark(Math.max(active - 1, 0));
+      } else if (e.key === "Enter") {
+        e.preventDefault();
+        pick(active < 0 ? 0 : active);
+      } else if (e.key === "Escape") {
+        results.hidden = true;
+      }
+    });
+
+    results.addEventListener("click", (e) => {
+      const b = (e.target as Element).closest<HTMLButtonElement>("button");
+      if (b) {
+        touched = true;
+        pick(Number(b.dataset.i));
+      }
+    });
+
+    // A one-time demonstration when the explorer first comes into view:
+    // type a genre and open its deepest path. Any interaction cancels it.
+    const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    async function demo() {
+      await load();
+      if (touched) return;
+      if (reduce) {
+        await reveal(["Rock", "Punk Rock", "Hardcore Punk", "Post-Hardcore", "Emo", "Midwest Emo"]);
+        return;
+      }
+      await wait(500);
+      for (const ch of "midwest") {
+        if (touched) return;
+        input.value += ch;
+        search(input.value);
+        await wait(110);
+      }
+      await wait(900);
+      if (touched) return;
+      const deepest = hits.reduce((best, h, i) => (h.path.length > (hits[best]?.path.length ?? 0) ? i : best), 0);
+      mark(deepest);
+      await wait(700);
+      if (touched) return;
+      pick(deepest);
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          io.disconnect();
+          demo();
+        }
+      },
+      { threshold: 0.6 },
+    );
+    io.observe(root);
+
+    ["pointerdown", "keydown"].forEach((type) =>
+      root.addEventListener(type, () => (touched = true), { passive: true }),
+    );
+  }
+</script>

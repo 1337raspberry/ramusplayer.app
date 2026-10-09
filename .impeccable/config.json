@@ -1,0 +1,62 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/assigned.html"
+        ],
+        "createdAt": "2026-10-09T17:50:04.578Z",
+        "reason": "Claude: throwaway decision-round sketch drawn as a skeleton on the decision page, never shipped"
+      },
+      {
+        "rule": "ai-color-palette",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/assigned.html"
+        ],
+        "createdAt": "2026-10-09T18:38:11.163Z",
+        "reason": "Claude: unchosen decision-round sketch of the riso direction (pink/blue inks by design), never shipped"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "arial narrow",
+        "files": [
+          ".impeccable/mocks/decision/assigned.html"
+        ],
+        "createdAt": "2026-10-09T18:49:11.314Z",
+        "reason": "Claude: decision-round sketch drawn as a skeleton on the decision page before DESIGN.md existed; never shipped"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "helvetica neue",
+        "files": [
+          ".impeccable/mocks/decision/model-pick.html"
+        ],
+        "createdAt": "2026-10-09T18:49:11.332Z",
+        "reason": "Claude: decision-round sketch drawn as a skeleton on the decision page before DESIGN.md existed; never shipped"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "marker felt",
+        "files": [
+          ".impeccable/mocks/decision/model-pick.html"
+        ],
+        "createdAt": "2026-10-09T18:49:11.349Z",
+        "reason": "Claude: decision-round sketch drawn as a skeleton on the decision page before DESIGN.md existed; never shipped"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "helvetica neue",
+        "files": [
+          ".impeccable/mocks/decision/canon.html"
+        ],
+        "createdAt": "2026-10-09T18:49:11.367Z",
+        "reason": "Claude: decision-round sketch drawn as a skeleton on the decision page before DESIGN.md existed; never shipped"
+      }
+    ]
+  }
+}

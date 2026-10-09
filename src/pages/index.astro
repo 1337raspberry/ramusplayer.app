@@ -1,0 +1,195 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import GenreExplorer from "../components/GenreExplorer.astro";
+import Showcase from "../components/Showcase.astro";
+import ColourShift from "../components/ColourShift.astro";
+import Pulsar from "../components/Pulsar.astro";
+import Phones from "../components/Phones.astro";
+import Extras from "../components/Extras.astro";
+import Film from "../components/Film.astro";
+import Privacy from "../components/Privacy.astro";
+import Downloads from "../components/Downloads.astro";
+import Footer from "../components/Footer.astro";
+import { formatBytes, getLatestRelease } from "../lib/release";
+import filtersShot from "../assets/shots/filters-sweden.webp";
+import popularShot from "../assets/shots/popular-americana.webp";
+
+const release = await getLatestRelease();
+
+// What the download buttons need to pick a file for the visitor's platform.
+const clientRelease = {
+  version: release.version,
+  platforms: release.platforms.map((p) => ({
+    id: p.id,
+    name: p.name,
+    requirement: p.requirement,
+    files: [p.primary, ...p.others]
+      .filter((d) => d !== null)
+      .map((d) => ({ label: d.label, arch: d.arch, url: d.url, size: formatBytes(d.bytes) })),
+  })),
+};
+---
+
+<Base
+  title="ramus: a genre-first music player for plex"
+  description="ramus is a free, open-source music player for Plex that shows your library as a heirarchy of 1,579 genres. For macOS, Windows, Linux, iOS and Android."
+>
+  <Nav version={release.version} />
+  <main id="main">
+    <Hero version={release.version} />
+    <GenreExplorer />
+
+    <ColourShift />
+
+    <Showcase
+      tint="#742a4b #602041"
+      layout="beside"
+      image={filtersShot}
+      maxImage="480px"
+      quality={100}
+      alt="The ramus filter panel set to death metal from Sweden released in 1990 to 1999, over a grid of matching albums: In Flames' Colony, Dark Tranquillity's The Gallery, At the Gates, Amon Amarth, Opeth's Morningrise and Dan Swanö's Moontower."
+    >
+      <h2 class="headline">
+        save a filter. take it offline. <span class="more">90s swedish death metal? dont mind if i do</span>
+      </h2>
+      <p class="lede">
+        keep any filter as a bookmark to go back to later, or download the whole lot for that gym with the dodgy wifi. there's no file size
+        limit.
+      </p>
+    </Showcase>
+
+    <Showcase
+      tint="#4e5643 #30445a"
+      layout="beside"
+      flip
+      image={popularShot}
+      maxImage="620px"
+      quality={100}
+      alt="The album page for The Offspring's Americana, with a popularity bar behind every track; Pretty Fly and The Kids Aren't Alright run nearly the full width."
+    >
+      <h2 class="headline">
+        find the good stuff*. <span class="more">(well, the popular stuff at least).</span>
+      </h2>
+      <p class="lede">
+        the data comes straight from plex. see how well balanced an album is or if it's just being held afloat by 2-3 bangers
+      </p>
+    </Showcase>
+
+    <Pulsar />
+    <Phones />
+    <Extras />
+    <Film />
+    <Privacy />
+    <Downloads release={release} />
+  </main>
+  <Footer />
+
+  <script type="application/json" id="release-data" set:html={JSON.stringify(clientRelease)} />
+</Base>
+
+<script>
+  // Section tinting: the page's two background colours follow whichever
+  // section holds the middle of the viewport.
+  const root = document.documentElement;
+  const sections = [...document.querySelectorAll<HTMLElement>("[data-tint]")];
+  let applied = "";
+
+  const apply = () => {
+    const mid = innerHeight / 2;
+    const current = sections.find((s) => {
+      const r = s.getBoundingClientRect();
+      return r.top <= mid && r.bottom > mid;
+    });
+    const tint = current?.dataset.tint;
+    if (!tint || tint === applied) return;
+    applied = tint;
+    const [a, b] = tint.split(" ");
+    root.style.setProperty("--tint-a", a);
+    root.style.setProperty("--tint-b", b ?? a);
+  };
+
+  let queued = false;
+  const schedule = () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      apply();
+    });
+  };
+  addEventListener("scroll", schedule, { passive: true });
+  addEventListener("resize", schedule);
+  document.addEventListener("tintchange", () => {
+    applied = "";
+    schedule();
+  });
+  apply();
+</script>
+
+<script>
+  // Platform detection: point the download buttons at the right file for
+  // this visitor. Without script they lead to the download section.
+  type Id = "macos" | "windows" | "linux" | "ios" | "android";
+  interface File {
+    label: string;
+    arch: string;
+    url: string;
+    size: string;
+  }
+  interface Platform {
+    id: Id;
+    name: string;
+    requirement: string;
+    files: File[];
+  }
+
+  const data = JSON.parse(document.getElementById("release-data")!.textContent!) as {
+    version: string;
+    platforms: Platform[];
+  };
+
+  const ua = navigator.userAgent;
+  const hint = (navigator as Navigator & { userAgentData?: { platform?: string } }).userAgentData?.platform ?? "";
+
+  function detect(): Id | null {
+    if (/android/i.test(ua)) return "android";
+    if (/iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) return "ios";
+    if (/mac/i.test(hint) || /Macintosh/.test(ua)) return "macos";
+    if (/win/i.test(hint) || /Windows/.test(ua)) return "windows";
+    if (/CrOS/.test(ua)) return null;
+    if (/linux/i.test(hint) || /Linux|X11/.test(ua)) return "linux";
+    return null;
+  }
+
+  const id = detect();
+  const platform = data.platforms.find((p) => p.id === id);
+
+  if (platform && platform.files.length) {
+    const arm = /aarch64|arm64|armv8/i.test(ua);
+    const file =
+      platform.id === "linux" ? (platform.files.find((f) => f.arch === (arm ? "ARM64" : "x86_64")) ?? platform.files[0]) : platform.files[0];
+    const sideload = platform.id === "ios";
+
+    document.querySelectorAll<HTMLAnchorElement>('[data-platform-cta="long"]').forEach((a) => {
+      a.querySelector("[data-label]")!.textContent = sideload ? "get it for iOS" : `download for ${platform.name}`;
+      a.href = sideload ? "#download-ios" : file.url;
+    });
+
+    document.querySelectorAll<HTMLElement>("[data-platform-meta]").forEach((el) => {
+      const detail = sideload ? "sideload the ipa or add the SideStore source" : `${file.label}${file.arch ? ` · ${file.arch}` : ""} · ${file.size}`;
+      el.textContent = `v${data.version} · ${platform.requirement} · ${detail} · `;
+      const all = document.createElement("a");
+      all.href = "#download";
+      all.textContent = "other platforms";
+      el.append(all);
+    });
+
+    const row = document.querySelector<HTMLElement>(`[data-platform="${platform.id}"]`);
+    if (row) {
+      row.classList.add("is-here");
+      row.querySelector<HTMLElement>(".platform__here")!.hidden = false;
+    }
+  }
+</script>

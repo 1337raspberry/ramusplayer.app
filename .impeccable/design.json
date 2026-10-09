@@ -1,0 +1,430 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-09T18:48:08+00:00",
+  "title": "Design System: ramus",
+  "extensions": {
+    "colorMeta": {
+      "coral": {
+        "role": "primary",
+        "displayName": "Logo Coral",
+        "canonical": "oklch(71.4% 0.180 17.6)",
+        "tonalRamp": [
+          "#2d0000",
+          "#520009",
+          "#7a0722",
+          "#a32b3c",
+          "#cd4957",
+          "#f96774",
+          "#ff929b",
+          "#ffc2c8"
+        ]
+      },
+      "coral-hi": {
+        "role": "primary",
+        "displayName": "Coral Peach",
+        "canonical": "oklch(75.7% 0.147 32.7)",
+        "tonalRamp": [
+          "#270000",
+          "#4a0300",
+          "#6f2213",
+          "#963e2d",
+          "#bf5b48",
+          "#e97a63",
+          "#ffa088",
+          "#ffceb6"
+        ]
+      },
+      "on-coral": {
+        "role": "primary",
+        "displayName": "Coral Ink",
+        "canonical": "oklch(17.9% 0.032 6.6)",
+        "tonalRamp": [
+          "#160609",
+          "#311e22",
+          "#4d3a3d",
+          "#6b585b",
+          "#8b787b",
+          "#ab999c",
+          "#d0bfc2",
+          "#f9eaec"
+        ]
+      },
+      "tint-a": {
+        "role": "secondary",
+        "displayName": "Album Tint A",
+        "canonical": "oklch(35.5% 0.081 271.6)",
+        "tonalRamp": [
+          "#040528",
+          "#172048",
+          "#313c6a",
+          "#4e5b88",
+          "#6e7ba7",
+          "#909dc7",
+          "#b6c3eb",
+          "#e2edff"
+        ],
+        "note": "Registered @property (<color>); value changes per section via data-tint. Listed value is the hero pair and initial value."
+      },
+      "tint-b": {
+        "role": "secondary",
+        "displayName": "Album Tint B",
+        "canonical": "oklch(50.8% 0.016 6.2)",
+        "tonalRamp": [
+          "#10090a",
+          "#2a2123",
+          "#473d3e",
+          "#665a5c",
+          "#867a7c",
+          "#a79b9d",
+          "#ccc1c3",
+          "#f6ebed"
+        ],
+        "note": "Registered @property (<color>); value changes per section via data-tint. Listed value is the hero pair and initial value."
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Night Ground",
+        "canonical": "oklch(15.3% 0.011 294.3)",
+        "tonalRamp": [
+          "#0b0a0f",
+          "#242328",
+          "#403f44",
+          "#5e5d62",
+          "#7d7c82",
+          "#9e9ea2",
+          "#c4c3c8",
+          "#eeeef2"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Paper Ink",
+        "canonical": "oklch(96.4% 0.004 314.8)",
+        "tonalRamp": [
+          "#0c0b0c",
+          "#252326",
+          "#413f41",
+          "#5e5d5f",
+          "#7e7c7f",
+          "#9f9da0",
+          "#c5c3c6",
+          "#efeef0"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Mist Ink",
+        "canonical": "oklch(79.0% 0.018 304.7)",
+        "tonalRamp": [
+          "#0c0a0f",
+          "#252329",
+          "#413e45",
+          "#5f5c64",
+          "#7f7b85",
+          "#a19ca7",
+          "#c6c1cd",
+          "#f1ecf7"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Dusk Ink",
+        "canonical": "oklch(64.5% 0.020 303.2)",
+        "tonalRamp": [
+          "#0c0a10",
+          "#25222a",
+          "#413e47",
+          "#605b66",
+          "#7f7b87",
+          "#a19ca9",
+          "#c6c1ce",
+          "#f0ecf8"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(96.4% 0.004 314.8 / 0.1)",
+        "tonalRamp": [
+          "rgb(244 242 245 / 0.03)",
+          "rgb(244 242 245 / 0.06)",
+          "rgb(244 242 245 / 0.08)",
+          "rgb(244 242 245 / 0.1)",
+          "rgb(244 242 245 / 0.11)",
+          "rgb(244 242 245 / 0.18)",
+          "rgb(244 242 245 / 0.28)",
+          "rgb(244 242 245 / 0.4)"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "oklch(96.4% 0.004 314.8 / 0.18)",
+        "tonalRamp": [
+          "rgb(244 242 245 / 0.03)",
+          "rgb(244 242 245 / 0.06)",
+          "rgb(244 242 245 / 0.08)",
+          "rgb(244 242 245 / 0.1)",
+          "rgb(244 242 245 / 0.11)",
+          "rgb(244 242 245 / 0.18)",
+          "rgb(244 242 245 / 0.28)",
+          "rgb(244 242 245 / 0.4)"
+        ]
+      },
+      "glass": {
+        "role": "neutral",
+        "displayName": "Glass",
+        "canonical": "oklch(96.4% 0.004 314.8 / 0.06)",
+        "tonalRamp": [
+          "rgb(244 242 245 / 0.03)",
+          "rgb(244 242 245 / 0.06)",
+          "rgb(244 242 245 / 0.08)",
+          "rgb(244 242 245 / 0.1)",
+          "rgb(244 242 245 / 0.11)",
+          "rgb(244 242 245 / 0.18)",
+          "rgb(244 242 245 / 0.28)",
+          "rgb(244 242 245 / 0.4)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The hero H1 only (and the privacy statement at 700)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Every section H2, two-tone and lowercase."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Platform names in the downloads list."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "The single paragraph under each headline, Mist Ink, max 62ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text."
+      },
+      "label": {
+        "displayName": "Label (mono)",
+        "purpose": "Versions, file sizes, requirements, URLs, durations."
+      }
+    },
+    "shadows": [
+      {
+        "name": "window-lift",
+        "value": "0 0 0 1px rgb(255 255 255 / 0.08), 0 30px 80px -20px rgb(0 0 0 / 0.65), 0 12px 30px -12px rgb(0 0 0 / 0.5)",
+        "purpose": "Every app-capture window frame."
+      },
+      {
+        "name": "nav-float",
+        "value": "0 12px 40px -18px rgb(0 0 0 / 0.7)",
+        "purpose": "Floating nav, with backdrop-filter: blur(20px) saturate(1.5) over rgb(14 13 19 / 0.62)."
+      },
+      {
+        "name": "coral-glow",
+        "value": "0 10px 30px -12px rgb(255 107 120 / 0.55)",
+        "purpose": "Under the primary button only."
+      },
+      {
+        "name": "disc-drop",
+        "value": "0 14px 40px -10px rgb(0 0 0 / 0.6)",
+        "purpose": "The film's coral play disc."
+      },
+      {
+        "name": "device-drop",
+        "value": "drop-shadow(0 30px 40px rgb(0 0 0 / 0.5))",
+        "purpose": "Phone captures that carry their own device outline (filter, not box-shadow)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The shared easing for every transition and the re-tint."
+      },
+      {
+        "name": "retint",
+        "value": "--tint-a, --tint-b 1.4s ease-out",
+        "purpose": "Root transition on the registered tint properties; disabled under reduced motion."
+      },
+      {
+        "name": "state",
+        "value": "0.2s ease-out",
+        "purpose": "Button, link and field state changes (tree rows 0.15s)."
+      },
+      {
+        "name": "hero-settle",
+        "value": "rotateX(24deg) scale(0.9) brightness(0.75) -> none; view() timeline, entry 0% to cover 45%; perspective 1800px, origin top",
+        "purpose": "Hero window settles flat as it scrolls into view."
+      },
+      {
+        "name": "rise",
+        "value": "opacity 0 + translate 0 48px -> rest; view() timeline, entry 0% to entry 70%",
+        "purpose": "Entrance for captures, film and phones."
+      },
+      {
+        "name": "colour-steps",
+        "value": "section 100vh + 60vh per album, sticky stage; 5 frames cross-fade 0.9s; swatch 36px -> 64px over 0.6s",
+        "purpose": "Pinned colour section steps through five albums' backdrop colours and re-tints the page."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Scroll animations gated on no-preference and @supports (animation-timeline: view()); under reduce, smooth scroll, re-tint and frame fades are off and changes are instant. Content is always visible by default."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "420px"
+      },
+      {
+        "name": "phone",
+        "value": "640px"
+      },
+      {
+        "name": "tablet",
+        "value": "760px"
+      },
+      {
+        "name": "columns",
+        "value": "900px"
+      },
+      {
+        "name": "page",
+        "value": "1240px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The coral download action; one per view, plus the detected platform row.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14\"/></svg><span>download for macOS</span></a>",
+      "css": ".ds-btn { display:inline-flex; align-items:center; gap:0.6em; min-height:48px; padding:0 1.25rem; border-radius:11px; border:1px solid rgb(244 242 245 / 0.18); background:rgb(244 242 245 / 0.06); color:#f4f2f5; font:600 1rem/1 Inter, system-ui, sans-serif; text-decoration:none; white-space:nowrap; cursor:pointer; transition:background-color .2s cubic-bezier(0.16, 1, 0.3, 1), border-color .2s cubic-bezier(0.16, 1, 0.3, 1), transform .2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn svg { width:1.15em; height:1.15em; flex:none; } .ds-btn:active { transform:translateY(1px); } .ds-btn:focus-visible { outline:2px solid #ff6b78; outline-offset:3px; } .ds-btn-primary { border-color:transparent; background:linear-gradient(135deg, #ff6b78, #ff8a72); color:#1d0b0f; box-shadow:0 10px 30px -12px rgb(255 107 120 / 0.55); } .ds-btn-primary:hover { background:linear-gradient(135deg, #ff7b86, #ff9a82); }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Glass button for GitHub, releases and non-detected platforms.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\"><span>every release</span><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14m0 0-5.5-5.5M19 12l-5.5 5.5\"/></svg></a>",
+      "css": ".ds-btn-secondary { display:inline-flex; align-items:center; gap:0.6em; min-height:48px; padding:0 1.25rem; border-radius:11px; border:1px solid rgb(244 242 245 / 0.18); background:rgb(244 242 245 / 0.06); color:#f4f2f5; font:600 1rem/1 Inter, system-ui, sans-serif; text-decoration:none; cursor:pointer; transition:background-color .2s cubic-bezier(0.16, 1, 0.3, 1), border-color .2s cubic-bezier(0.16, 1, 0.3, 1), transform .2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-secondary svg { width:1.15em; height:1.15em; } .ds-btn-secondary:hover { background:rgb(244 242 245 / 0.11); border-color:rgb(244 242 245 / 0.28); } .ds-btn-secondary:active { transform:translateY(1px); } .ds-btn-secondary:focus-visible { outline:2px solid #ff6b78; outline-offset:3px; }"
+    },
+    {
+      "name": "Floating Nav",
+      "kind": "nav",
+      "refersTo": "nav-download",
+      "description": "Translucent floating bar: mark and wordmark, GitHub with version, compact coral download.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-brand\" href=\"#\">ramus</a><div class=\"ds-nav-links\"><a href=\"#\">features</a><a href=\"#\">film</a><a href=\"#\">download</a></div><a class=\"ds-nav-gh\" href=\"#\">v2.1.0</a><a class=\"ds-nav-dl\" href=\"#\">download</a></nav>",
+      "css": ".ds-nav { display:flex; align-items:center; gap:1.5rem; padding:8px 8px 8px 14px; border:1px solid rgb(244 242 245 / 0.1); border-radius:16px; background:rgb(14 13 19 / 0.62); backdrop-filter:blur(20px) saturate(1.5); box-shadow:0 12px 40px -18px rgb(0 0 0 / 0.7); font-family:Inter, system-ui, sans-serif; color:#f4f2f5; } .ds-nav-brand { font:700 1.3rem/1 'Bricolage Grotesque', system-ui, sans-serif; letter-spacing:-0.03em; color:#f4f2f5; text-decoration:none; } .ds-nav-links { display:flex; gap:1.75rem; margin-inline:auto; font-size:0.95rem; } .ds-nav-links a { color:#bdb8c4; text-decoration:none; transition:color .2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav-links a:hover { color:#f4f2f5; } .ds-nav-gh { display:inline-flex; align-items:center; min-height:40px; padding:0 0.75rem; border-radius:10px; color:#bdb8c4; font:0.8rem 'JetBrains Mono', ui-monospace, monospace; text-decoration:none; } .ds-nav-gh:hover { color:#f4f2f5; background:rgb(244 242 245 / 0.07); } .ds-nav-dl { display:inline-flex; align-items:center; min-height:40px; padding:0 1rem; border-radius:10px; background:linear-gradient(135deg, #ff6b78, #ff8a72); color:#1d0b0f; font:600 0.92rem/1 Inter, system-ui, sans-serif; text-decoration:none; } .ds-nav a:focus-visible { outline:2px solid #ff6b78; outline-offset:3px; }"
+    },
+    {
+      "name": "Window Frame",
+      "kind": "card",
+      "refersTo": "window-frame",
+      "description": "The only container for app imagery: rounded, clipped, long soft shadow.",
+      "html": "<div class=\"ds-window\"><div class=\"ds-window-capture\"></div></div>",
+      "css": ".ds-window { position:relative; width:320px; border-radius:14px; overflow:hidden; background:#111; box-shadow:0 0 0 1px rgb(255 255 255 / 0.08), 0 30px 80px -20px rgb(0 0 0 / 0.65), 0 12px 30px -12px rgb(0 0 0 / 0.5); } .ds-window-capture { aspect-ratio:16/10; background:linear-gradient(135deg, #2d3866, #6e6264); }"
+    },
+    {
+      "name": "Two-Tone Headline",
+      "kind": "custom",
+      "refersTo": "headline",
+      "description": "Lowercase section H2: bright statement, dimmed continuation.",
+      "html": "<h2 class=\"ds-headline\">every album repaints the app. <span class=\"ds-more\">this page does it too.</span></h2>",
+      "css": ".ds-headline { margin:0; max-width:18ch; font-family:'Bricolage Grotesque', system-ui, sans-serif; font-size:clamp(2.25rem, 1.4rem + 3.4vw, 4rem); font-weight:700; font-variation-settings:'wdth' 92; letter-spacing:-0.035em; line-height:1; text-wrap:balance; color:#f4f2f5; } .ds-more { color:#908b98; }"
+    },
+    {
+      "name": "Genre Tree Rows",
+      "kind": "custom",
+      "refersTo": "tree-row",
+      "description": "Sidebar-style genre tree rows with guide lines, chevrons and a coral current row.",
+      "html": "<ul class=\"ds-tree\"><li><button class=\"ds-row\" aria-expanded=\"true\" style=\"--depth:0\"><span class=\"ds-chev\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m9.5 6.5 5.5 5.5-5.5 5.5\"/></svg></span>Rock</button><ul style=\"--depth:0\"><li><button class=\"ds-row\" style=\"--depth:1\"><span class=\"ds-chev\"></span>Post-Rock</button></li><li><button class=\"ds-row\" aria-current=\"true\" style=\"--depth:1\"><span class=\"ds-chev\"></span>Shoegaze</button></li></ul></li></ul>",
+      "css": ".ds-tree, .ds-tree ul { margin:0; padding:0; list-style:none; width:280px; background:color-mix(in oklab, #2d3866 22%, #121118); } .ds-tree ul { position:relative; } .ds-tree ul::before { content:''; position:absolute; top:2px; bottom:10px; left:calc(var(--depth, 0) * 18px + 19px); border-left:1px solid rgb(244 242 245 / 0.1); } .ds-row { display:flex; align-items:center; width:100%; min-height:34px; padding:0 10px 0 calc(var(--depth) * 18px + 10px); border:0; border-radius:7px; background:none; color:#bdb8c4; font:400 0.97rem/1.2 Inter, system-ui, sans-serif; text-align:left; cursor:pointer; transition:background-color .15s cubic-bezier(0.16, 1, 0.3, 1), color .15s cubic-bezier(0.16, 1, 0.3, 1); } .ds-row:hover { background:rgb(244 242 245 / 0.06); color:#f4f2f5; } .ds-row[aria-expanded='true'] { color:#f4f2f5; } .ds-row[aria-current='true'] { background:color-mix(in oklab, #ff6b78 16%, transparent); color:#ff6b78; font-weight:550; } .ds-row:focus-visible { outline:2px solid #ff6b78; outline-offset:3px; } .ds-chev { display:grid; place-items:center; flex:none; width:18px; height:18px; margin-right:6px; color:#908b98; } .ds-chev svg { width:14px; height:14px; transition:rotate .25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-row[aria-expanded='true'] .ds-chev svg { rotate:90deg; }"
+    },
+    {
+      "name": "Genre Search Field",
+      "kind": "input",
+      "refersTo": "search-field",
+      "description": "Search field atop the explorer; coral caret and focus border.",
+      "html": "<label class=\"ds-search\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M10.75 17.5a6.75 6.75 0 1 0 0-13.5 6.75 6.75 0 0 0 0 13.5ZM20 20l-4.4-4.4\"/></svg><input type=\"search\" placeholder=\"find a genre, e.g. shoegaze\"></label>",
+      "css": ".ds-search { position:relative; display:flex; align-items:center; width:320px; } .ds-search svg { position:absolute; left:14px; width:18px; height:18px; color:#908b98; pointer-events:none; } .ds-search input { width:100%; min-height:44px; padding:0 14px 0 42px; border:1px solid rgb(244 242 245 / 0.1); border-radius:10px; background:rgb(0 0 0 / 0.25); color:#f4f2f5; font:400 1rem/1 Inter, system-ui, sans-serif; caret-color:#ff6b78; transition:border-color .2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-search input::placeholder { color:#908b98; } .ds-search input:focus { outline:none; border-color:color-mix(in oklab, #ff6b78 70%, transparent); }"
+    },
+    {
+      "name": "Ruled List",
+      "kind": "custom",
+      "refersTo": "ruled-list",
+      "description": "Hairline-ruled rows with run-in display headings (extras); the downloads list uses the same rules.",
+      "html": "<dl class=\"ds-ruled\"><div class=\"ds-ruled-row\"><dt>synced lyrics</dt><dd>courtesy of lrclib. no account needed.</dd></div><div class=\"ds-ruled-row\"><dt>a local cache</dt><dd>one sync up front, then incremental.</dd></div></dl>",
+      "css": ".ds-ruled { margin:0; max-width:520px; border-top:1px solid rgb(244 242 245 / 0.18); } .ds-ruled-row { padding:1.35rem 0 1.45rem; border-bottom:1px solid rgb(244 242 245 / 0.18); font:400 clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem)/1.45 Inter, system-ui, sans-serif; } .ds-ruled-row dt, .ds-ruled-row dd { display:inline; margin:0; } .ds-ruled-row dt { font-family:'Bricolage Grotesque', system-ui, sans-serif; font-weight:650; letter-spacing:-0.02em; color:#f4f2f5; } .ds-ruled-row dt::after { content:'.'; } .ds-ruled-row dd { color:#bdb8c4; } .ds-ruled-row dd::before { content:' '; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Page That Plays Along",
+    "overview": "The site borrows the app's own trick: ramus repaints its window from whatever album is playing, and this page repaints its backdrop from the album art in whichever section holds the middle of the viewport. Everything sits on one continuous near-black scroll. Each feature lands once, at full size, as the real app at work inside a rounded window frame, with a two-tone lowercase headline beside or above it. Depth comes from light, not from cards: two soft colour washes in opposite corners of a fixed backdrop, and windows that throw long, soft shadows onto it.\n\nThe tone is dry and plain. Display type is a slightly condensed, heavy Bricolage Grotesque, always lowercase, so a bright statement runs straight into a dimmed continuation. Body text is Inter, the app's own face. JetBrains Mono is kept for the facts a sysadmin would check: versions, file sizes, requirements, the SideStore URL. Coral, taken from the logo, is the only colour that never changes. It marks what to download and where focus sits, and nothing else.\n\nDensity is low. Sections breathe on generous vertical padding, copy stays short, and two quiet devices carry any list: ruled rows separated by hairlines, and a genre tree in the app's sidebar style. The page turns down the startup landing-page formula of a glowing gradient hero over a grid of identical feature cards.",
+    "keyCharacteristics": [
+      "Dark-only near-black ground, re-tinted per section by two album-art colours.",
+      "Coral as the single constant accent: primary download, focus ring, selection, the current tree row, matched search text.",
+      "Real app captures and launch-film footage are the only imagery, framed as app windows.",
+      "Lowercase two-tone display headlines: a statement in full ink, then a continuation in dim ink.",
+      "Hairline-ruled lists instead of cards.",
+      "Scroll-driven motion on CSS view timelines; with reduced motion the page is static and fully visible."
+    ],
+    "rules": [
+      {
+        "name": "The One Constant Rule",
+        "body": "Coral is the only colour that stays the same in every section. It goes on download actions, focus, selection and the live \"you are here\" states, never on decoration, headings or borders at rest.",
+        "section": "colors"
+      },
+      {
+        "name": "The Album Decides Rule",
+        "body": "A section's tint pair comes from the album art visible in its own capture. Tints are never chosen for mood or to look good together. They drift in over 1.4s on the shared ease-out, because `--tint-a` and `--tint-b` are registered `<color>` properties and so can be animated.",
+        "section": "colors"
+      },
+      {
+        "name": "The Night Only Rule",
+        "body": "The page sets `color-scheme: dark` and offers no light theme. The tint washes need a near-black ground to read as light, and the page shows the app in its own dark, album-tinted window, so a light page would misrepresent the product.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Tone Rule",
+        "body": "A section headline is one sentence in Paper Ink followed by a continuation in Dusk Ink inside the same heading. The bright half states the feature; the dim half adds the wry follow-up. Both halves are lowercase except for proper names and platform names.",
+        "section": "typography"
+      },
+      {
+        "name": "The Facts in Mono Rule",
+        "body": "Versions, sizes, requirements and URLs are set in JetBrains Mono at label size. Prose never is.",
+        "section": "typography"
+      },
+      {
+        "name": "The Light, Not Cards Rule",
+        "body": "No section content sits on a card. Grouping comes from hairline rules, whitespace and the window frame. A tinted panel appears only where the app itself would draw one (the genre explorer).",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** give every section a `data-tint` pair taken from the album art in its own capture.",
+      "**Do** put app imagery inside the window frame (14px corners, window-lift shadow); phone captures that carry their own device outline take the device drop instead.",
+      "**Do** write section headlines as two-tone lowercase sentences: Paper Ink statement, Dusk Ink continuation.",
+      "**Do** keep coral for downloads, focus, selection and live \"current\" states.",
+      "**Do** set versions, sizes, requirements and URLs in JetBrains Mono at label size.",
+      "**Do** group lists with 1px Rule hairlines between rows.",
+      "**Do** drive entrances from CSS view timelines inside `prefers-reduced-motion: no-preference` and `@supports (animation-timeline: view())`, with content visible by default."
+    ],
+    "donts": [
+      "**Don't** use any imagery other than real ramus captures, launch-film frames and loops, and graphics drawn in code. Never generated art, mockups or stock.",
+      "**Don't** add a light theme or light sections; the scheme is dark only.",
+      "**Don't** put features on a grid of identical cards, or open with a gradient-glow hero.",
+      "**Don't** use coral for headings, borders at rest or decoration, and don't introduce a second constant accent.",
+      "**Don't** pick section tints for mood; they come from the cover on screen.",
+      "**Don't** use hard offset shadows; elevation is long, soft and negative-spread."
+    ]
+  }
+}

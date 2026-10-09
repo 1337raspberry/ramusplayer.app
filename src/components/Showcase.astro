@@ -1,0 +1,94 @@
+---
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+// One feature moment: a two-tone headline, a line of copy and a real capture
+// of the app. "stack" centres the copy over a wide capture; "beside" sets
+// them in two columns, with "flip" putting the capture first.
+interface Props {
+  id?: string;
+  tint: string;
+  layout: "stack" | "beside";
+  flip?: boolean;
+  image: ImageMetadata;
+  alt: string;
+  maxImage?: string;
+  /**
+   * Encoder quality for the served images. Captures over the app's smooth
+   * backdrop need 100: their gradients are only smooth thanks to fine dither
+   * noise, which any lower setting strips, leaving visible bands.
+   */
+  quality?: number;
+}
+
+const { id, tint, layout, flip = false, image, alt, maxImage = "100%", quality } = Astro.props;
+---
+
+<section class:list={["section", "showcase", `showcase--${layout}`, { "showcase--flip": flip }]} id={id} data-tint={tint}>
+  <div class="wrap showcase__grid">
+    <div class="showcase__copy">
+      <slot />
+    </div>
+    <div class="showcase__media rise" style={`--max-image: ${maxImage}`}>
+      <div class="window">
+        <Picture
+          src={image}
+          formats={["avif", "webp"]}
+          widths={[640, 960, 1280, Math.min(image.width, 1920)]}
+          quality={quality}
+          sizes={layout === "stack" ? "(min-width: 1290px) 1100px, calc(100vw - 2rem)" : "(min-width: 900px) 50vw, calc(100vw - 2rem)"}
+          alt={alt}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .showcase__grid {
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: center;
+  }
+
+  .showcase--stack .showcase__grid {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .showcase--stack .showcase__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .showcase--stack :global(.headline) {
+    max-width: 20ch;
+  }
+
+  .showcase__media {
+    width: 100%;
+    max-width: var(--max-image);
+  }
+
+  .showcase--beside .showcase__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .showcase--beside .showcase__media {
+    justify-self: center;
+  }
+
+  .showcase--flip .showcase__media {
+    order: -1;
+  }
+
+  @media (max-width: 900px) {
+    .showcase--beside .showcase__grid {
+      grid-template-columns: 1fr;
+    }
+    .showcase--flip .showcase__media {
+      order: 0;
+    }
+  }
+</style>

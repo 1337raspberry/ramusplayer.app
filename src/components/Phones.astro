@@ -1,0 +1,90 @@
+---
+import { Picture } from "astro:assets";
+import library from "../assets/shots/mobile-library.webp";
+import nowPlaying from "../assets/shots/mobile-np.webp";
+import lyrics from "../assets/shots/mobile-lyrics.webp";
+
+const phones = [
+  { src: library, alt: "ramus on iPhone: the genre tree open at Hardcore Punk › Post-Hardcore › Emo, with AFI playing in the mini player." },
+  { src: nowPlaying, alt: "ramus on iPhone: the now playing screen with album art and a waveform scrubber." },
+  { src: lyrics, alt: "ramus on iPhone: synced lyrics for Phoebe Bridgers' Graceland Too, the current line in red above the waveform and playback controls." },
+];
+---
+
+<section class="section phones" data-tint="#323442 #21292a">
+  <div class="wrap phones__copy">
+    <h2 class="headline">
+      five platforms. one audio engine. <span class="more">same playback everywhere.</span>
+    </h2>
+    <p class="lede">
+      macOS, windows, linux, iOS and android, all play through libmpv, so ramus behaves the same wherever you are.
+    </p>
+  </div>
+  <div class="wrap phones__row">
+    {
+      phones.map((p, i) => (
+        <div class="phones__item rise" style={`--i: ${i}`}>
+          <Picture
+            src={p.src}
+            formats={["avif", "webp"]}
+            widths={[300, 460, 700]}
+            sizes="(min-width: 900px) 300px, 42vw"
+            alt={p.alt}
+          />
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .phones__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .phones__copy .headline {
+    max-width: 20ch;
+  }
+
+  .phones__row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: clamp(3rem, 7vw, 5rem);
+  }
+
+  .phones__item {
+    width: min(30%, 300px);
+    filter: drop-shadow(0 30px 40px rgb(0 0 0 / 0.5));
+  }
+
+  .phones__item:nth-child(1) {
+    rotate: -6deg;
+    translate: 9% 6%;
+  }
+
+  .phones__item:nth-child(2) {
+    z-index: 1;
+  }
+
+  .phones__item:nth-child(3) {
+    rotate: 6deg;
+    translate: -9% 6%;
+  }
+
+  @media (max-width: 640px) {
+    .phones__item {
+      width: 44%;
+    }
+    /* Keep the genre-tree phone; the lyrics phone gives way. */
+    .phones__item:nth-child(3) {
+      display: none;
+    }
+    .phones__item:nth-child(1) {
+      translate: 6% 4%;
+    }
+  }
+</style>

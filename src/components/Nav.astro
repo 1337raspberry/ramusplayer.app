@@ -1,0 +1,119 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/brand/logo.png";
+import Icon from "./Icon.astro";
+import { REPO_URL } from "../lib/release";
+
+interface Props {
+  version: string;
+}
+
+const { version } = Astro.props;
+---
+
+<header class="nav">
+  <a class="nav__brand" href="#top" aria-label="ramus, back to top">
+    <Image src={logo} alt="" width={64} height={64} class="nav__mark" loading="eager" />
+    <span>ramus</span>
+  </a>
+  <div class="nav__actions">
+    <a class="nav__github" href={REPO_URL} aria-label={`ramus on GitHub, latest release v${version}`}>
+      <Icon name="github" />
+      <span class="mono">v{version}</span>
+    </a>
+    <a class="btn btn--primary nav__download" href="#download" data-platform-cta="short">
+      <Icon name="download" />
+      <span data-label>download</span>
+    </a>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    z-index: 50;
+    width: min(100% - 24px, 1080px);
+    translate: -50% 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 8px 8px 8px 14px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: rgb(14 13 19 / 0.62);
+    -webkit-backdrop-filter: blur(20px) saturate(1.5);
+    backdrop-filter: blur(20px) saturate(1.5);
+    box-shadow: 0 12px 40px -18px rgb(0 0 0 / 0.7);
+  }
+
+  .nav__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font: 700 1.3rem/1 var(--font-display);
+    letter-spacing: -0.03em;
+    text-decoration: none;
+  }
+
+  .nav__mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .nav__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+  }
+
+  .nav__github {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 40px;
+    padding: 0 0.75rem;
+    border-radius: 10px;
+    color: var(--ink-2);
+    text-decoration: none;
+    transition:
+      color 0.2s var(--ease-out),
+      background-color 0.2s var(--ease-out);
+  }
+
+  .nav__github:hover {
+    color: var(--ink);
+    background: rgb(244 242 245 / 0.07);
+  }
+
+  .nav__github :global(svg) {
+    flex: none;
+    width: 18px;
+    height: 18px;
+  }
+
+  .nav__github .mono {
+    font-size: 0.8rem;
+  }
+
+  .nav__download {
+    min-height: 40px;
+    padding: 0 1rem;
+    font-size: 0.92rem;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 760px) {
+    .nav {
+      gap: 0.5rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .nav__github .mono {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,123 @@
+---
+import { getImage } from "astro:assets";
+import Icon from "./Icon.astro";
+import poster from "../assets/film-frame.jpg";
+
+const posterImage = await getImage({ src: poster, width: 1600, format: "jpg", quality: 82 });
+---
+
+<section class="section film" id="film" data-tint="#7a2e3a #2b2440">
+  <div class="wrap film__copy">
+    <h2 class="headline">
+      or watch the one-minute version. <span class="more">sound on if you like.</span>
+    </h2>
+  </div>
+  <div class="wrap film__stage rise">
+    <div class="window film__window" data-film>
+      <video preload="none" playsinline poster={posterImage.src} width="1920" height="1080">
+        <source src="/film/ramus.mp4" type="video/mp4" />
+      </video>
+      <button class="film__play" type="button" data-film-play>
+        <span class="film__disc"><Icon name="play" /></span>
+        <span class="film__label">play the film <span class="mono">1:00</span></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .film__copy {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .film__copy .headline {
+    max-width: 18ch;
+  }
+
+  .film__stage {
+    margin-top: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .film__window {
+    max-width: 1100px;
+    margin-inline: auto;
+    aspect-ratio: 16 / 9;
+    background: #070609;
+  }
+
+  .film__window video {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* One play affordance over the poster; the browser's controls appear only
+     once the film is playing. */
+  .film__play {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 0.9rem;
+    border: 0;
+    background: linear-gradient(to top, rgb(7 6 9 / 0.55), rgb(7 6 9 / 0.1) 55%);
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .film__disc {
+    display: grid;
+    place-items: center;
+    width: clamp(64px, 8vw, 92px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--coral), var(--coral-hi));
+    color: var(--on-coral);
+    box-shadow: 0 14px 40px -10px rgb(0 0 0 / 0.6);
+    transition: scale 0.3s var(--ease-out);
+  }
+
+  .film__disc :global(svg) {
+    width: 42%;
+    height: 42%;
+    translate: 6% 0;
+  }
+
+  .film__play:hover .film__disc {
+    scale: 1.06;
+  }
+
+  .film__label {
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: rgb(7 6 9 / 0.55);
+    font: 600 0.95rem/1.2 var(--font-body);
+  }
+
+  .film__label .mono {
+    margin-left: 0.35rem;
+    color: var(--ink-2);
+  }
+
+  .film__play[hidden] {
+    display: none;
+  }
+</style>
+
+<script>
+  const frame = document.querySelector<HTMLElement>("[data-film]");
+  if (frame) {
+    const video = frame.querySelector("video")!;
+    const play = frame.querySelector<HTMLButtonElement>("[data-film-play]")!;
+    play.addEventListener("click", () => {
+      play.hidden = true;
+      video.controls = true;
+      video.play().catch(() => {
+        video.controls = true;
+      });
+      video.focus();
+    });
+  }
+</script>

@@ -1,0 +1,260 @@
+---
+import { Picture } from "astro:assets";
+import mouthMoods from "../assets/colour/mouth-moods.webp";
+import dawnMetropolis from "../assets/colour/dawn-metropolis.webp";
+import rustInPeace from "../assets/colour/rust-in-peace.webp";
+import skinnyFists from "../assets/colour/lift-your-skinny-fists.webp";
+import lesVoyages from "../assets/colour/les-voyages-de-lame.webp";
+
+// The same window playing five albums, each drawn by the app's own components
+// and colour code. `tint` is the backdrop's top-left and bottom-right corner
+// colours for that cover, exactly as the app paints them, so the page's wash
+// matches the window. While the section is pinned, scrolling steps through
+// them, the way the app retints itself when the track changes.
+const frames = [
+  {
+    src: mouthMoods,
+    artist: "Neil Cicierega",
+    album: "Mouth Moods",
+    tint: "#bd6027 #11a590",
+    alt: "ramus on macOS playing Neil Cicierega's Mouth Moods: the window runs from orange on the left to teal on the right, taken from the cover, with the whole genre tree in the sidebar.",
+  },
+  {
+    src: dawnMetropolis,
+    artist: "Anamanaguchi",
+    album: "Dawn Metropolis",
+    tint: "#780469 #b55c21",
+    alt: "The same window playing Anamanaguchi's Dawn Metropolis, now magenta at the top fading to orange at the bottom.",
+  },
+  {
+    src: rustInPeace,
+    artist: "Megadeth",
+    album: "Rust in Peace",
+    tint: "#22368e #2a40a9",
+    alt: "The same window playing Megadeth's Rust in Peace, tinted deep blue.",
+  },
+  {
+    src: skinnyFists,
+    artist: "Godspeed You! Black Emperor",
+    album: "Lift Your Skinny Fists Like Antennas to Heaven",
+    tint: "#976e5d #966e5f",
+    alt: "The same window playing Godspeed You! Black Emperor's Lift Your Skinny Fists Like Antennas to Heaven, tinted a warm tan.",
+  },
+  {
+    src: lesVoyages,
+    artist: "Alcest",
+    album: "Les Voyages de l’Âme",
+    tint: "#5d7463 #365747",
+    alt: "The same window playing Alcest's Les Voyages de l’Âme, tinted a muted green.",
+  },
+];
+---
+
+<section class="colour" data-colour data-tint={frames[0].tint} style={`--steps: ${frames.length}`}>
+  <div class="colour__stage">
+    <div class="wrap colour__inner">
+      <div class="colour__copy">
+        <h2 class="headline">
+          immersive album-art colour themes. <span class="more">(just like this page)</span>
+        </h2>
+        <p class="lede">
+          background and accent colours come straight from the album art, so the whole app's vibe shifts with whatever else is playing
+        </p>
+        <ol class="colour__swatches" aria-hidden="true">
+          {
+            frames.map((f, i) => {
+              const [a, b] = f.tint.split(" ");
+              return <li style={`--a: ${a}; --b: ${b}`} data-step={i} />;
+            })
+          }
+        </ol>
+        <p class="colour__now mono" aria-hidden="true">
+          {
+            frames.map((f, i) => (
+              <span data-now={i}>
+                {f.artist} <span class="colour__album">· {f.album}</span>
+              </span>
+            ))
+          }
+        </p>
+      </div>
+      <div class="window colour__window">
+        {
+          frames.map((f, i) => (
+            <div class="colour__frame" data-frame={i} data-tint={f.tint}>
+              <Picture
+                src={f.src}
+                formats={["avif", "webp"]}
+                widths={[800, 1200, 1600, 2000]}
+                sizes="(min-width: 900px) 56vw, calc(100vw - 2rem)"
+                alt={f.alt}
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .colour__stage {
+    display: grid;
+    align-items: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-block: clamp(5rem, 10vw, 8rem);
+  }
+
+  .colour__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+
+  .colour__copy .headline {
+    max-width: 14ch;
+  }
+
+  .colour__swatches {
+    display: flex;
+    gap: 10px;
+    margin: 2.25rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Each swatch is the album's backdrop, corner to corner. */
+  .colour__swatches li {
+    width: 36px;
+    height: 10px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--a), var(--b));
+    opacity: 0.35;
+    transition:
+      opacity 0.6s var(--ease-out),
+      width 0.6s var(--ease-out);
+  }
+
+  .colour__swatches li.is-on {
+    width: 64px;
+    opacity: 1;
+  }
+
+  /* The album playing in the frame on screen; the lines share one cell and
+     crossfade with the frames. */
+  .colour__now {
+    display: grid;
+    margin-top: 1rem;
+    max-width: 40ch;
+    color: var(--ink);
+    font-size: var(--step--1);
+    line-height: 1.45;
+  }
+
+  .colour__now > span {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transition: opacity 0.6s var(--ease-out);
+  }
+
+  .colour__now > span:first-child,
+  .colour__now > span.is-on {
+    opacity: 1;
+  }
+
+  .colour.is-scrub .colour__now > span:first-child:not(.is-on) {
+    opacity: 0;
+  }
+
+  .colour__album {
+    color: var(--ink-2);
+  }
+
+  .colour__window {
+    display: grid;
+  }
+
+  .colour__frame {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transition: opacity 0.9s var(--ease-out);
+  }
+
+  .colour__frame:first-child,
+  .colour__frame.is-on {
+    opacity: 1;
+  }
+
+  .colour.is-scrub .colour__frame:first-child:not(.is-on) {
+    opacity: 0;
+  }
+
+  /* With script, the section gives each album about two-thirds of a screen of
+     scrolling while the stage pins. */
+  .colour.is-scrub {
+    height: calc(100vh + var(--steps) * 60vh);
+  }
+
+  .colour.is-scrub .colour__stage {
+    position: sticky;
+    top: 0;
+  }
+
+  @media (max-width: 900px) {
+    .colour__inner {
+      grid-template-columns: 1fr;
+    }
+    .colour__stage {
+      padding-block: 6rem 3rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .colour__frame,
+    .colour__swatches li,
+    .colour__now > span {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const section = document.querySelector<HTMLElement>("[data-colour]");
+  if (section) {
+    const frames = [...section.querySelectorAll<HTMLElement>("[data-frame]")];
+    const marks = [...section.querySelectorAll<HTMLElement>("[data-step], [data-now]")];
+    section.classList.add("is-scrub");
+    let current = -1;
+
+    const update = () => {
+      const rect = section.getBoundingClientRect();
+      const travel = rect.height - innerHeight;
+      const progress = travel > 0 ? Math.min(1, Math.max(0, -rect.top / travel)) : 0;
+      const step = Math.min(frames.length - 1, Math.floor(progress * frames.length));
+      if (step === current) return;
+      current = step;
+      frames.forEach((f, i) => f.classList.toggle("is-on", i === step));
+      marks.forEach((m) => m.classList.toggle("is-on", Number(m.dataset.step ?? m.dataset.now) === step));
+      section.dataset.tint = frames[step].dataset.tint;
+      section.dispatchEvent(new CustomEvent("tintchange", { bubbles: true }));
+    };
+
+    let queued = false;
+    addEventListener(
+      "scroll",
+      () => {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(() => {
+          queued = false;
+          update();
+        });
+      },
+      { passive: true },
+    );
+    addEventListener("resize", update);
+    update();
+  }
+</script>

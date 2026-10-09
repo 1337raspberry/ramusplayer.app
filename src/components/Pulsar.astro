@@ -1,0 +1,79 @@
+---
+// The pulsar visualiser, full bleed: a seamless two-bar loop rendered from
+// the launch film's project with the app's own ridge painter, over the
+// backdrop the app paints for Sunbather. It is a muted H.264 loop because
+// every device decodes that in hardware; it only loads and plays while it is
+// on screen, and not at all under reduced motion.
+---
+
+<section class="section pulsar" data-tint="#a54d4c #7c3345">
+  <div class="wrap pulsar__copy">
+    <h2 class="headline">
+      watch your music dance. <span class="more">its jiggling is almost hypnotic.</span>
+    </h2>
+    <p class="lede">
+      the pulsar visualiser and full-screen focus mode run silky smooth on desktop and iOS and are, imho, incredibly responsive and satisfying to watch. android soon™
+    </p>
+  </div>
+  <div class="pulsar__band">
+    <video
+      class="pulsar__video"
+      muted
+      loop
+      playsinline
+      disablepictureinpicture
+      preload="none"
+      poster="/media/pulsar-loop-poster.webp"
+      width="1600"
+      height="624"
+      aria-label="The pulsar visualiser: rows of white ridgelines rising and falling with the music over a coral background taken from the album art."
+      data-pulsar
+    >
+      <source src="/media/pulsar-loop.mp4" type="video/mp4" />
+    </video>
+  </div>
+</section>
+
+<style>
+  .pulsar {
+    padding-bottom: 0;
+  }
+
+  .pulsar__copy .headline {
+    max-width: 19ch;
+  }
+
+  .pulsar__band {
+    position: relative;
+    margin-top: clamp(3rem, 6vw, 5rem);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+  }
+
+  .pulsar__video {
+    width: 100%;
+    aspect-ratio: 1600 / 624;
+    object-fit: cover;
+    background: #a54d4c;
+  }
+
+  @media (max-width: 640px) {
+    .pulsar__video {
+      aspect-ratio: 4 / 3;
+    }
+  }
+</style>
+
+<script>
+  // Plays while on screen; with reduced motion it stays on the poster frame.
+  const video = document.querySelector<HTMLVideoElement>("[data-pulsar]");
+  if (video && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      },
+      { rootMargin: "200px 0px" },
+    ).observe(video);
+  }
+</script>

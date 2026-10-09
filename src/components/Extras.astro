@@ -1,0 +1,112 @@
+---
+// Bodies are trusted copy written here, rendered as HTML so they can carry links.
+const items = [
+  {
+    title: "synced lyrics",
+    body: "courtesy of <a href=\"https://lrclib.net/\">lrclib</a>. no account needed, and a huge number of them scroll along with the song.",
+  },
+  {
+    title: "gapless and lossless",
+    body: "on transcoding or direct-play. even the visualiser is gapless. gaps are the enemy.",
+  },
+  {
+    title: "discovery crates",
+    body: "pick a genre, with or without its sub-genres, and get the top tracks according to plex users, as a playlist that syncs back to your server.",
+  },
+  {
+    title: "your own hierarchy",
+    body: "build a genre tree in the bundled editor, export it to share, or import someone else's.",
+  },
+  {
+    title: "waveform seeking",
+    body: "with sonic analysis on your server, skip the six-minute ambient intro straight to the good stuff.",
+  },
+  {
+    title: "media keys and now playing",
+    body: "system controls on every desktop, lock screen and control centre on mobile.",
+  },
+  {
+    title: "a local cache",
+    body: "one sync up front, then incremental. search is instant even on huge libraries connected remotely.",
+  },
+];
+---
+
+<section class="section extras" data-tint="#3a3550 #2a2630">
+  <div class="wrap extras__inner">
+    <h2 class="headline">
+      the other cool bits <span class="more">(imo).</span>
+    </h2>
+    <dl class="extras__list">
+      {
+        items.map((it) => (
+          <div class="extras__row">
+            <dt>{it.title}</dt>
+            <dd set:html={it.body} />
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<style>
+  .extras__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+    gap: 2rem clamp(2rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  .extras__inner .headline {
+    position: sticky;
+    top: 120px;
+    max-width: 11ch;
+  }
+
+  .extras__list {
+    margin: 0;
+    border-top: 1px solid var(--line-strong);
+  }
+
+  /* A ruled list with run-in headings: each row reads as one sentence. */
+  .extras__row {
+    padding: 1.35rem 0 1.45rem;
+    border-bottom: 1px solid var(--line-strong);
+    font-size: var(--step-1);
+    line-height: 1.45;
+  }
+
+  .extras__row dt,
+  .extras__row dd {
+    display: inline;
+    margin: 0;
+  }
+
+  .extras__row dt {
+    font-family: var(--font-display);
+    font-weight: 650;
+    letter-spacing: -0.02em;
+  }
+
+  .extras__row dt::after {
+    content: ".";
+  }
+
+  .extras__row dd {
+    color: var(--ink-2);
+  }
+
+  .extras__row dd::before {
+    content: " ";
+  }
+
+  @media (max-width: 900px) {
+    .extras__inner {
+      grid-template-columns: 1fr;
+    }
+    .extras__inner .headline {
+      position: static;
+    }
+  }
+</style>

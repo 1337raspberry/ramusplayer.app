@@ -1,0 +1,297 @@
+---
+import Icon from "./Icon.astro";
+import { formatBytes, RELEASES_URL, REPO_URL, SIDESTORE_SOURCE, type Release } from "../lib/release";
+
+interface Props {
+  release: Release;
+}
+
+const { release } = Astro.props;
+const released = release.published.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+
+const fileLabel = (d: { label: string; arch: string }) => (d.arch ? `${d.label} · ${d.arch}` : d.label);
+---
+
+<section class="section downloads" id="download" data-tint="#5a2433 #2a1d2c">
+  <div class="wrap">
+    <div class="downloads__head">
+      <h2 class="headline">
+        free. open source.<span class="more">pick your platform.</span>
+      </h2>
+      <p class="lede downloads__lede">
+        every build comes straight from github releases. you'll need a plex media server with a music library.
+      </p>
+      <p class="downloads__version mono">
+        v{release.version} · released {released} ·{" "}
+        <a href={release.url}>release notes</a>
+      </p>
+    </div>
+
+    <ul class="platforms">
+      {
+        release.platforms.map((p) => (
+          <li class="platform" id={`download-${p.id}`} data-platform={p.id}>
+            <div class="platform__name">
+              <h3>{p.name}</h3>
+              <p>{p.requirement}</p>
+              <p class="platform__here" hidden>looks like you're on this one</p>
+            </div>
+            <div class="platform__files">
+              {p.primary ? (
+                <a class="btn platform__primary" href={p.primary.url}>
+                  <Icon name="download" />
+                  <span>{fileLabel(p.primary)}</span>
+                  <span class="platform__size mono">{formatBytes(p.primary.bytes)}</span>
+                </a>
+              ) : (
+                <a class="btn" href={release.url}>
+                  <span>see the release page</span>
+                  <Icon name="external" />
+                </a>
+              )}
+              {p.others.length > 0 && (
+                <ul class="platform__others">
+                  {p.others.map((o) => (
+                    <li>
+                      <a href={o.url}>
+                        {fileLabel(o)}
+                      </a>
+                      <span class="mono">{formatBytes(o.bytes)}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {p.id === "ios" && (
+                <div class="sidestore">
+                  <span class="sidestore__label">or add the SideStore source</span>
+                  <div class="sidestore__row">
+                    <code class="sidestore__url">{SIDESTORE_SOURCE}</code>
+                    <button class="sidestore__copy" type="button" data-copy={SIDESTORE_SOURCE}>
+                      <Icon name="copy" />
+                      <span data-text>copy</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p class="downloads__note">
+      heads up: releases are unsigned or self-signed, so gatekeeper, smartscreen and play protect will all have
+      opinions the first time you open ramus. <a href={release.url}>the release notes</a> explain how to get past each
+      one.
+    </p>
+
+    <div class="downloads__more">
+      <a class="btn btn--lg" href={REPO_URL}>
+        <Icon name="github" />
+        <span>source on github</span>
+      </a>
+      <a class="btn btn--lg" href={RELEASES_URL}>
+        <span>every release</span>
+        <Icon name="arrow" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .downloads__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem 3rem;
+  }
+
+  .downloads__head .headline {
+    max-width: 17ch;
+    flex-basis: 100%;
+  }
+
+  .downloads__head .downloads__lede {
+    margin-top: 0;
+    flex: 1 1 32ch;
+  }
+
+  .downloads__version {
+    color: var(--ink-3);
+    font-size: 0.8rem;
+  }
+
+  .downloads__version a {
+    color: var(--ink-2);
+  }
+
+  .platforms {
+    margin: clamp(2.5rem, 6vw, 4rem) 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--line-strong);
+  }
+
+  .platform {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 1rem 2rem;
+    align-items: start;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--line-strong);
+    scroll-margin-top: 96px;
+  }
+
+  .platform__name h3 {
+    font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.25rem);
+    letter-spacing: -0.03em;
+  }
+
+  .platform__name p {
+    margin-top: 0.45rem;
+    color: var(--ink-2);
+    font-size: 0.98rem;
+  }
+
+  .platform__name .platform__here {
+    color: var(--coral);
+    font-size: 0.88rem;
+    font-weight: 550;
+  }
+
+  .platform__files {
+    display: grid;
+    justify-items: start;
+    gap: 0.9rem;
+  }
+
+  .platform__size {
+    color: var(--ink-3);
+    font-size: 0.78rem;
+    font-weight: 400;
+  }
+
+  .platform.is-here .platform__primary {
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--coral), var(--coral-hi));
+    color: var(--on-coral);
+  }
+
+  .platform.is-here .platform__primary .platform__size {
+    color: color-mix(in oklab, var(--on-coral) 70%, transparent);
+  }
+
+  .platform__others {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.95rem;
+  }
+
+  .platform__others li {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45rem;
+  }
+
+  .platform__others a {
+    color: var(--ink);
+  }
+
+  .platform__others .mono {
+    color: var(--ink-3);
+    font-size: 0.75rem;
+  }
+
+  .sidestore {
+    display: grid;
+    gap: 0.45rem;
+    width: 100%;
+  }
+
+  .sidestore__label {
+    color: var(--ink-2);
+    font-size: 0.92rem;
+  }
+
+  .sidestore__row {
+    display: flex;
+    align-items: stretch;
+    max-width: 100%;
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .sidestore__url {
+    flex: 1;
+    min-width: 0;
+    padding: 0.7rem 0.85rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    color: var(--ink);
+    font-size: 0.8rem;
+    background: rgb(0 0 0 / 0.25);
+  }
+
+  .sidestore__copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0 0.95rem;
+    border: 0;
+    border-left: 1px solid var(--line-strong);
+    background: rgb(244 242 245 / 0.06);
+    color: var(--ink);
+    font: 600 0.88rem/1 var(--font-body);
+    cursor: pointer;
+  }
+
+  .sidestore__copy:hover {
+    background: rgb(244 242 245 / 0.12);
+  }
+
+  .sidestore__copy :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+
+  .downloads__note {
+    max-width: var(--measure);
+    margin-top: 2rem;
+    color: var(--ink-2);
+    font-size: 0.98rem;
+  }
+
+  .downloads__more {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+  }
+
+  @media (max-width: 760px) {
+    .platform {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>("[data-copy]").forEach((button) => {
+    const label = button.querySelector("[data-text]")!;
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy!);
+        label.textContent = "copied";
+      } catch {
+        label.textContent = "select and copy";
+      }
+      setTimeout(() => (label.textContent = "copy"), 2000);
+    });
+  });
+</script>

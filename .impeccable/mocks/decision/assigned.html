@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Gig Flyer sketch</title>
+<style>
+  :root { --paper:#ECEDE8; --pink:#FF48B0; --blue:#3255A4; }
+  * { box-sizing:border-box; margin:0; }
+  body { width:1440px; height:900px; background:var(--paper); font-family:"Arial Narrow","Helvetica Neue",Arial,sans-serif; overflow:hidden; position:relative; }
+  .ink { mix-blend-mode:multiply; }
+  .dots { position:absolute; inset:0 auto auto 0; width:900px; height:900px; background-image:radial-gradient(var(--pink) 34%, transparent 36%); background-size:14px 14px; opacity:.55; mix-blend-mode:multiply; clip-path:circle(420px at 300px 460px); }
+  .presents { position:absolute; left:64px; top:40px; font-size:24px; letter-spacing:.2em; color:var(--blue); text-transform:uppercase; }
+  .head { position:absolute; left:52px; top:70px; font-size:260px; font-weight:900; line-height:.9; letter-spacing:-.04em; }
+  .head .b { color:var(--blue); position:absolute; left:9px; top:6px; }
+  .head .p { color:var(--pink); position:relative; }
+  .tag { position:absolute; left:64px; top:318px; font-size:34px; color:var(--blue); }
+  .lineup { position:absolute; left:64px; top:390px; width:860px; color:var(--blue); text-transform:uppercase; font-weight:800; line-height:1; }
+  .l1 { font-size:120px; letter-spacing:-.02em; }
+  .l2 { font-size:54px; margin-top:14px; }
+  .l3 { font-size:34px; margin-top:14px; }
+  .l4 { font-size:24px; margin-top:12px; }
+  .on { color:#4E2F6B; text-shadow:4px 3px 0 var(--pink); }
+  .stub { position:absolute; right:56px; top:70px; width:420px; height:520px; border:3px dashed var(--blue); padding:32px; color:var(--blue); }
+  .stub .big { font-size:44px; font-weight:900; text-transform:uppercase; line-height:1.05; }
+  .btn { margin-top:40px; height:96px; background:var(--blue); color:var(--paper); display:flex; align-items:center; justify-content:center; font-size:40px; font-weight:900; text-transform:uppercase; box-shadow:7px 5px 0 var(--pink); }
+  .also { margin-top:28px; font-size:26px; text-transform:uppercase; }
+  .plate { position:absolute; right:110px; bottom:-60px; width:520px; height:310px; background:linear-gradient(135deg,#3a3f78,#7a5d8f 60%,#2f3463); transform:rotate(-3deg); outline:10px solid #fff; }
+</style></head><body>
+  <div class="dots"></div>
+  <div class="presents ink">ramusplayer.app presents</div>
+  <div class="head ink"><span class="b">ramus</span><span class="p">ramus</span></div>
+  <div class="tag ink">a genre-first music player for plex</div>
+  <div class="lineup ink">
+    <div class="l1 on">Rock</div>
+    <div class="l2"><span class="on">Post-Rock</span> · Post-Punk · Shoegaze</div>
+    <div class="l3">Psychedelic Rock · Math Rock · <span class="on">Blackgaze</span> · Slowcore</div>
+    <div class="l4">Dance-Punk Revival · Coldwave · Twee Pop · Yacht Rock · Space Rock</div>
+  </div>
+  <div class="stub ink">
+    <div class="big">Free entry<br>All ages<br>No telemetry</div>
+    <div class="btn">Get it for macOS</div>
+    <div class="also">also windows · linux · ios · android</div>
+  </div>
+  <div class="plate"></div>
+</body></html>

@@ -1,0 +1,21 @@
+{
+  "name": "ramusplayer-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "^7.3.8",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@types/node": "^24.19.1",
+    "typescript": "^6.0.0"
+  },
+  "packageManager": "pnpm@11.22.0"
+}

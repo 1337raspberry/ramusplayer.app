@@ -1,0 +1,44 @@
+---
+---
+
+<section class="section privacy" data-tint="#1c1b22 #23202b">
+  <div class="wrap privacy__inner">
+    <p class="privacy__list" role="list">
+      <span role="listitem">no tracking.</span>
+      <span role="listitem">no analytics.</span>
+      <span role="listitem">no data collection.</span>
+      <span role="listitem" class="privacy__punch">not ever.</span>
+    </p>
+    <p class="lede privacy__lede">
+      ramus talks to the following: your plex media server (duh), plex.tv to sign in to your account, lrclib when you ask for lyrics, and other players on your
+      network if you cast to them. that's the whole list. your plex token is encrypted at rest, and this website doesn't
+      track you either.
+    </p>
+  </div>
+</section>
+
+<style>
+  .privacy__inner {
+    display: grid;
+    justify-items: start;
+  }
+
+  .privacy__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.35em;
+    max-width: 16ch;
+    font: 700 var(--step-4) / 0.98 var(--font-display);
+    font-variation-settings: "wdth" 92;
+    letter-spacing: -0.04em;
+    color: var(--ink-3);
+  }
+
+  .privacy__punch {
+    color: var(--ink);
+  }
+
+  .privacy__lede {
+    margin-top: 2rem;
+  }
+</style>
