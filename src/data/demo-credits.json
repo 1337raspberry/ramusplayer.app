@@ -1,0 +1,749 @@
+{
+  "updated": "2026-10-10",
+  "albums": [
+    {
+      "artist": "Allt",
+      "title": "The Seed of Self-Destruction",
+      "url": "https://allt.bandcamp.com/album/the-seed-of-self-destruction",
+      "year": 2022,
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "BLEEDERS",
+      "title": "GASH",
+      "url": "https://bleeders.bandcamp.com/album/gash",
+      "year": 2016,
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Bob Bucko Jr",
+      "title": "Trilogy (Disc 1)",
+      "url": "https://bobbuckojr.bandcamp.com/album/trilogy-disc-1",
+      "year": 2012,
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "cadmium",
+      "title": "INTERVALS",
+      "url": "https://cadecomposer.bandcamp.com/album/intervals",
+      "year": 2022,
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Cistem Failure",
+      "title": "Cistemfailure",
+      "url": "https://cistemfailure.bandcamp.com/album/cistemfailure",
+      "year": 2015,
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "CORE_9669",
+      "title": "As Above",
+      "url": "https://core9669.bandcamp.com/album/as-above",
+      "year": 2020,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Crust",
+      "title": "Dissolution",
+      "url": "https://crustband.bandcamp.com/album/dissolution",
+      "year": 2023,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "artwork by Deni Aktemirov"
+      ]
+    },
+    {
+      "artist": "Daev Martian",
+      "title": "Sometimes",
+      "url": "https://goldierecords.bandcamp.com/album/sometimes",
+      "year": 2015,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "photography by Nolitha Nondzaba"
+      ]
+    },
+    {
+      "artist": "daryl dee",
+      "title": "twigs n' things",
+      "url": "https://daryldee.bandcamp.com/album/twigs-n-things",
+      "year": 2020,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "photography and typography by Pigeon Scratch"
+      ]
+    },
+    {
+      "artist": "Dorothy Waste and Amamanita Axaxaxanax Glass Seer",
+      "title": "aags x dw",
+      "url": "https://aags.bandcamp.com/album/aags-x-dw",
+      "year": 2021,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Efilheim",
+      "title": "anamnesis",
+      "url": "https://efilheim.bandcamp.com/album/anamnesis",
+      "year": 2025,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Gage Lara",
+      "title": "Astrolabe Vol. 1 (CC0)",
+      "url": "https://gagelara.bandcamp.com/album/astrolabe-vol-1-cc0",
+      "year": 2022,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Gage Lara",
+      "title": "NEON.COLLAPSE Vol. 1 (CC0)",
+      "url": "https://gagelara.bandcamp.com/album/neon-collapse-vol-1-cc0",
+      "year": 2021,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "glaciære",
+      "title": "pool water blue",
+      "url": "https://steviasphere.bandcamp.com/album/pool-water-blue",
+      "year": 2016,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "textures, shaders and text by Jeff Cardinal"
+      ]
+    },
+    {
+      "artist": "glaciære",
+      "title": "water slide",
+      "url": "https://steviasphere.bandcamp.com/album/water-slide",
+      "year": 2017,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "textures, shaders and text by Jeff Cardinal"
+      ]
+    },
+    {
+      "artist": "He's Dead, Jim",
+      "title": "Board Game Night",
+      "url": "https://mechayuri.bandcamp.com/album/board-game-night",
+      "year": 2014,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "artwork by Kirk, a friend of the band"
+      ]
+    },
+    {
+      "artist": "hellstar.plus",
+      "title": "DILUVIAL FLOW / laminar flow",
+      "url": "https://hellstarplus.bandcamp.com/album/diluvial-flow-laminar-flow",
+      "year": 2026,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "cover art by methylcain"
+      ]
+    },
+    {
+      "artist": "Her Wonderworld Reversal Orchestra",
+      "title": "E.P.I.C. (Extremely Promiscuous, Incidental Conflict)",
+      "url": "https://wonderworldreversal.bandcamp.com/album/e-p-i-c-extremely-promiscuous-incidental-conflict",
+      "year": 2023,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "HoliznaCC0",
+      "title": "Gamer Music",
+      "url": "https://holiznacc0.bandcamp.com/album/gamer-music",
+      "year": 2024,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "How I Became Invisible",
+      "title": "Another Ceiling",
+      "url": "https://howibecameinvisible.bandcamp.com/album/another-ceiling",
+      "year": 2022,
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "jade",
+      "title": "unraveling, passage through",
+      "url": "https://jade-archives.bandcamp.com/album/unraveling-passage-through",
+      "year": 2021,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Jesse Spillane",
+      "title": "Vortex",
+      "url": "https://jessespillane.bandcamp.com/album/vortex",
+      "year": 2025,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "John Maier",
+      "title": "Eek! a Mouse",
+      "url": "https://epfqr.bandcamp.com/album/eek-a-mouse",
+      "year": 2011,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Kikhausen",
+      "title": "Clicke Dee Click",
+      "url": "https://kikhausen.bandcamp.com/album/clicke-dee-click",
+      "year": 2026,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "artwork by C. Stark"
+      ]
+    },
+    {
+      "artist": "Kimiko Ishizaka",
+      "title": "Bach: Well-Tempered Clavier, Book 1",
+      "url": "https://kimikoishizaka.bandcamp.com/album/bach-well-tempered-clavier-book-1",
+      "year": 2015,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "kitty",
+      "title": "FROSTBITE",
+      "url": "https://kitty.bandcamp.com/album/frostbite",
+      "year": 2014,
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Kontext",
+      "title": "Tähevärav",
+      "url": "https://mckontext.bandcamp.com/album/t-hev-rav",
+      "year": 2024,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Le Morte d'Abby",
+      "title": "0pII",
+      "url": "https://lemortedabby.bandcamp.com/album/0pii",
+      "year": 2023,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Leterel",
+      "title": "Detonation Drift",
+      "url": "https://leterel.bandcamp.com/album/detonation-drift",
+      "year": 2022,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Little Waist",
+      "title": "Some Kinda Comfort",
+      "url": "https://littlewaist.bandcamp.com/album/some-kinda-comfort",
+      "year": 2014,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "artwork by Audrey Zee Whitesides"
+      ]
+    },
+    {
+      "artist": "lurline baths",
+      "title": "lurline baths e.p.",
+      "url": "https://lurlinebaths.bandcamp.com/album/lurline-baths-e-p",
+      "year": 2021,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Mabisyo",
+      "title": "Jazz Up Your Christmas",
+      "url": "https://noproblematapes.bandcamp.com/album/jazz-up-your-christmas",
+      "year": 2025,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "artwork by Insomaniac"
+      ]
+    },
+    {
+      "artist": "Miasme",
+      "title": "Keep Them at a Distance",
+      "url": "https://miasme.bandcamp.com/album/keep-them-at-a-distance",
+      "year": 2026,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "artwork by Maria Piecha"
+      ]
+    },
+    {
+      "artist": "MIDI Bunny",
+      "title": "MIDI Bunny EP",
+      "url": "https://midibunny.bandcamp.com/album/midi-bunny-ep",
+      "year": 2023,
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Mild Wild",
+      "title": "Vol. 1",
+      "url": "https://mildwildmusic.bandcamp.com/album/vol-1",
+      "year": 2020,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Momma Swift",
+      "title": "Take Up Arms",
+      "url": "https://mommaswift.bandcamp.com/album/take-up-arms",
+      "year": 2015,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Morris and The East Coast",
+      "title": "There's A High Moon",
+      "url": "https://wearemorrisandtheeastcoast.bandcamp.com/album/theres-a-high-moon",
+      "year": 2012,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "NCRFM",
+      "title": "Jazz & Blues",
+      "url": "https://ncrfmusic.bandcamp.com/album/jazz-blues",
+      "year": 2025,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [
+        "Barrelhouse & Smoke",
+        "Juke Joint Cipher",
+        "Chromatic Whisper",
+        "The After-Midnight Club",
+        "Delta Blue Horizon"
+      ],
+      "art": []
+    },
+    {
+      "artist": "Omni Gardens",
+      "title": "Field Recordings: Hawaiʻi",
+      "url": "https://omnigardens.bandcamp.com/album/field-recordings-hawai-i",
+      "year": 2018,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Oulu Space Jam Collective",
+      "title": "Lungworm",
+      "url": "https://ouluspacejamcollective.bandcamp.com/album/lungworm",
+      "year": 2023,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Pakapi Records",
+      "title": "VA - Industria Tropical",
+      "url": "https://pakapirecords.bandcamp.com/album/va-industria-tropical",
+      "year": 2015,
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Penance Stare",
+      "title": "House Of Bastet",
+      "url": "https://penancestare.bandcamp.com/album/house-of-bastet",
+      "year": 2017,
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Postcard nowhere",
+      "title": "SINNER",
+      "url": "https://postcard-nowhere.bandcamp.com/album/sinner",
+      "year": 2022,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "PRISON SHOWER / LIVER VALUES",
+      "title": "Split",
+      "url": "https://negate-everything.bandcamp.com/album/split",
+      "year": 2019,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Rav",
+      "title": "I'M ON TO ME",
+      "url": "https://exocietymusic.bandcamp.com/album/im-on-to-me",
+      "year": 2020,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "album art by kinjiro (Brandon Lepine)"
+      ]
+    },
+    {
+      "artist": "Sam Rodewald",
+      "title": "Home and other Virtues",
+      "url": "https://samrodewald.bandcamp.com/album/home-and-other-virtues",
+      "year": 2014,
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Sponge Ballast",
+      "title": "Station Station",
+      "url": "https://epfqr.bandcamp.com/album/station-station",
+      "year": 2008,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Sponge Ballast",
+      "title": "The Sponge Stands Alone",
+      "url": "https://epfqr.bandcamp.com/album/the-sponge-stands-alone",
+      "year": 2000,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Sponge Ballast",
+      "title": "Twenty-Six Hundred (2600)",
+      "url": "https://epfqr.bandcamp.com/album/twenty-six-hundred-2600",
+      "year": 2002,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Spooky Mountain",
+      "title": "A Gull Nipped at Me",
+      "url": "https://spookymountain.bandcamp.com/album/a-gull-nipped-at-me",
+      "year": 2020,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Steinsopp",
+      "title": "Steinsopp",
+      "url": "https://steinsopp.bandcamp.com/album/steinsopp",
+      "year": 2016,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "cover art by Erik Alm (Trøbbel Design)"
+      ]
+    },
+    {
+      "artist": "Stevia Sphere",
+      "title": "Parallel Universes of the Spherical Kind",
+      "url": "https://steviasphere.bandcamp.com/album/parallel-universes-of-the-spherical-kind",
+      "year": 2026,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "image editing by Hysteric Pixie Nightmare Girl"
+      ]
+    },
+    {
+      "artist": "Sunshine & Irony",
+      "title": "A Bullet by Any Other Name",
+      "url": "https://sunshineirony.bandcamp.com/album/a-bullet-by-any-other-name",
+      "year": 2011,
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Swara",
+      "title": "Scenes From a Breakup",
+      "url": "https://swara1.bandcamp.com/album/scenes-from-a-breakup",
+      "year": 2021,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Thaumiel Sonozaki",
+      "title": "Mara EP",
+      "url": "https://thaumielsonozaki.bandcamp.com/album/mara-ep",
+      "year": 2013,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Them Theys",
+      "title": "Record Of Resentment",
+      "url": "https://themtheys.bandcamp.com/album/record-of-resentment",
+      "year": 2022,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Tin Can Rubber Band",
+      "title": "Tin Can Rubber Band",
+      "url": "https://epfqr.bandcamp.com/album/tin-can-rubber-band",
+      "year": 2008,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Toy Cops",
+      "title": "Riot Stuff",
+      "url": "https://epfqr.bandcamp.com/album/riot-stuff",
+      "year": 2009,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Toy Cops",
+      "title": "Tenderloin",
+      "url": "https://epfqr.bandcamp.com/album/tenderloin",
+      "year": 2010,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Uncle Wormwood",
+      "title": "The Sunny Side of Seclusion",
+      "url": "https://unclewormwood.bandcamp.com/album/the-sunny-side-of-seclusion",
+      "year": 2024,
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Une Personne's Gorgiaschestra",
+      "title": "<1st Symphony",
+      "url": "https://lessthanone.bandcamp.com/album/1st-symphony",
+      "year": 2022,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Upir",
+      "title": "Conspiring in Blood-Drenched Moonlight",
+      "url": "https://upir.bandcamp.com/album/conspiring-in-blood-drenched-moonlight",
+      "year": 2021,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [
+        "Calling of Phasmic Presence",
+        "Μνήμα",
+        "Koreltsak"
+      ],
+      "art": []
+    },
+    {
+      "artist": "Various Artists",
+      "title": "Trip Clubs And Triggers: A Compilation For The Sharp Modernist",
+      "url": "https://thealdorabritainrecords.bandcamp.com/album/trip-clubs-and-triggers-a-compilation-for-the-sharp-modernist",
+      "year": 2020,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [
+        "Savannah UK",
+        "The Electric Stars",
+        "Samuel Rogers",
+        "The Kite Collectors",
+        "The Lightscopes",
+        "Sam Q's Night Patrol",
+        "Subsetters",
+        "The Deep Six",
+        "The Aim",
+        "The Grenadiers UK",
+        "SubCulture",
+        "The 1:21s",
+        "Proper",
+        "The Cycle Paths",
+        "The Laynes",
+        "French Boutik",
+        "Dave Fletcher",
+        "RudeSix",
+        "The 48K's",
+        "The Credits",
+        "Logan Paul Murphy (The Beatles Boy)"
+      ],
+      "art": [
+        "artwork by Rik Bardsley"
+      ]
+    },
+    {
+      "artist": "Viciado de Nulidad",
+      "title": "Calaña",
+      "url": "https://viciadodenulidad.bandcamp.com/album/cala-a",
+      "year": 2024,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "WangleLine",
+      "title": "MACHINIST'S DREAM",
+      "url": "https://wangleline.bandcamp.com/album/machinists-dream",
+      "year": 2022,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": [
+        "artwork by Millie Spouse"
+      ]
+    },
+    {
+      "artist": "WDX",
+      "title": "Live Dubs One",
+      "url": "https://wdx40.bandcamp.com/album/live-dubs-one",
+      "year": 2021,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "Wood Spider",
+      "title": "In the Thick of It",
+      "url": "https://woodspider.bandcamp.com/album/in-the-thick-of-it",
+      "year": 2012,
+      "licence": "CC BY-SA 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "trackArtists": [],
+      "art": []
+    },
+    {
+      "artist": "yorda",
+      "title": "are you troubled by the fact that you are no longer strictly human?",
+      "url": "https://yorda.bandcamp.com/album/are-you-troubled-by-the-fact-that-you-are-no-longer-strictly-human",
+      "year": 2022,
+      "licence": "CC BY 4.0",
+      "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "trackArtists": [],
+      "art": []
+    }
+  ]
+}

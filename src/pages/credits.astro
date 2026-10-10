@@ -1,0 +1,194 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import Footer from "../components/Footer.astro";
+import logo from "../assets/brand/logo.png";
+import credits from "../data/demo-credits.json";
+
+const { albums } = credits;
+const updated = new Date(`${credits.updated}T00:00:00Z`)
+  .toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })
+  .toLowerCase();
+---
+
+<Base
+  title="demo music credits · ramus"
+  description="The Creative Commons music in ramus's App Store screenshots and review demo library, with credits for every album."
+>
+  <header class="wrap policy-top">
+    <a class="policy-top__brand" href="/" aria-label="ramus, home">
+      <Image src={logo} alt="" width={64} height={64} class="policy-top__mark" loading="eager" />
+      <span>ramus</span>
+    </a>
+  </header>
+
+  <main id="main" class="section credits-page">
+    <div class="wrap credits">
+      <h1 class="headline">
+        demo music credits. <span class="more">{albums.length} albums, all creative commons.</span>
+      </h1>
+      <p class="credits__date mono">updated {updated}</p>
+
+      <p class="lede">
+        ramus ships no music. its App Store screenshots, and the demo server that App Review signs in to, use these
+        albums. each one is released by its artists under a creative commons licence that lets anyone share it, as long
+        as they credit it. this is that credit.
+      </p>
+
+      <div class="credits__notes">
+        <p>
+          the files are the artists' own MP3 downloads from bandcamp. the demo library adds tags (genres, the album
+          artist, and a comment naming the source and licence), converts a few cover images to standard sRGB colour, and
+          leaves out a handful of tracks that use other people's songs or recordings. the music itself is unchanged.
+        </p>
+        <p>
+          each licence link opens its creative commons deed. the licences come without warranties. if you made one of
+          these albums and want its credit changed or the album taken out, email <a
+            href="mailto:admin@blueshelter.net">admin@blueshelter.net</a
+          >.
+        </p>
+      </div>
+
+      <ul class="credits__list">
+        {
+          albums.map((album) => (
+            <li class="credits__row">
+              <div class="credits__work">
+                <a class="credits__title" href={album.url}>
+                  {album.title}
+                </a>
+                <p class="credits__artist">{album.artist}</p>
+                {album.trackArtists.length > 0 && (
+                  <p class="credits__extra">tracks by {album.trackArtists.join(", ")}</p>
+                )}
+                {album.art.length > 0 && <p class="credits__extra">{album.art.join("; ")}</p>}
+              </div>
+              <p class="credits__facts mono">
+                <a href={album.licenceUrl}>{album.licence}</a>
+                {album.year && <span>{album.year}</span>}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </main>
+
+  <Footer />
+</Base>
+
+<style is:global>
+  /* The privacy page's muted tint; this page has no sections for the
+     scroll-driven tint to follow. */
+  :root {
+    --tint-a: #1c1b22;
+    --tint-b: #23202b;
+  }
+</style>
+
+<style>
+  .policy-top {
+    padding-top: 1.5rem;
+  }
+
+  .policy-top__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font: 700 1.3rem/1 var(--font-display);
+    letter-spacing: -0.03em;
+    text-decoration: none;
+  }
+
+  .policy-top__mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .credits-page {
+    padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .credits {
+    max-width: calc(var(--measure) + 12rem + 2 * var(--gutter));
+    margin-inline: auto;
+    color: var(--ink-2);
+  }
+
+  .credits :where(h1) {
+    color: var(--ink);
+  }
+
+  .credits__date {
+    margin-top: 1rem;
+    color: var(--ink-3);
+  }
+
+  .credits__notes {
+    display: grid;
+    gap: 0.85rem;
+    max-width: var(--measure);
+    margin-top: 1.75rem;
+  }
+
+  /* A ruled list, like the downloads: work on the left, licence facts on the
+     right. */
+  .credits__list {
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--line-strong);
+  }
+
+  .credits__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.5rem 2rem;
+    align-items: baseline;
+    padding: 1.1rem 0 1.2rem;
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .credits__title {
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+
+  .credits__title:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .credits__artist {
+    margin-top: 0.2rem;
+  }
+
+  .credits__extra {
+    margin-top: 0.35rem;
+    color: var(--ink-3);
+    font-size: var(--step--1);
+  }
+
+  .credits__facts {
+    display: flex;
+    gap: 1rem;
+    color: var(--ink-3);
+    white-space: nowrap;
+  }
+
+  .credits__facts a {
+    color: var(--ink-2);
+  }
+
+  @media (max-width: 640px) {
+    .credits__row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
