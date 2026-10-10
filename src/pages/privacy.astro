@@ -1,0 +1,168 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import Footer from "../components/Footer.astro";
+import logo from "../assets/brand/logo.png";
+import { REPO_URL } from "../lib/release";
+---
+
+<Base
+  title="privacy policy · ramus"
+  description="What the ramus music player does and doesn't do with your data: no tracking, no analytics, no data collection."
+>
+  <header class="wrap policy-top">
+    <a class="policy-top__brand" href="/" aria-label="ramus, home">
+      <Image src={logo} alt="" width={64} height={64} class="policy-top__mark" loading="eager" />
+      <span>ramus</span>
+    </a>
+  </header>
+
+  <main id="main" class="section policy-page">
+    <article class="wrap policy">
+      <h1 class="headline">
+        privacy policy. <span class="more">ramus collects nothing about you.</span>
+      </h1>
+      <p class="policy__date mono">effective 10 october 2026</p>
+
+      <p class="lede">
+        ramus is a free, open-source music player for plex. it has no accounts of its own, no analytics, no advertising, no
+        tracking and no crash reporting, and its developer runs no servers. nothing you do in ramus is sent to its developer.
+      </p>
+
+      <h2>what ramus talks to</h2>
+      <p>only what it needs to play your music:</p>
+      <ul>
+        <li>
+          <strong>plex.tv</strong>, when you sign in with your plex account and when ramus looks up your servers and players.
+          requests carry the standard plex client details: the app's name, the platform and device type, and a random
+          identifier ramus creates the first time it runs. plex's side is covered by
+          the <a href="https://www.plex.tv/about/privacy-legal/">plex privacy policy</a>.
+        </li>
+        <li>
+          <strong>your plex media server</strong>, to browse, stream and download your own music and to report playback
+          progress. your server uses those reports to count plays, and may pass them on to services you've linked to your
+          plex account.
+        </li>
+        <li>
+          <strong>lrclib</strong> (lrclib.net), to look up lyrics when your plex server has none for a track. ramus sends the
+          track's title, artist, album and duration, and nothing that identifies you.
+        </li>
+        <li>
+          <strong>other plex players</strong>, only when you cast to one. ramus sends the player playback commands and a
+          temporary access token from your plex account so it can stream from your server; your long-lived sign-in token
+          never leaves your device.
+        </li>
+      </ul>
+      <p>links to the source code and licences open in your browser only when you tap them.</p>
+
+      <h2>what stays on your device</h2>
+      <ul>
+        <li>your plex sign-in token, stored encrypted (in the keychain on iPhone).</li>
+        <li>
+          a copy of your library's details and artwork, your settings, your play queue, and any music you download or ramus
+          caches for smooth playback, all in the app's own storage.
+        </li>
+      </ul>
+      <p>signing out deletes the sign-in token and the play queue. uninstalling ramus deletes everything else it stored.</p>
+
+      <h2>this website</h2>
+      <p>
+        ramusplayer.app has no cookies, analytics or trackers. it's hosted on github pages, which keeps standard server
+        logs under <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">github's
+        privacy statement</a>.
+      </p>
+
+      <h2>children</h2>
+      <p>ramus isn't aimed at children, and it collects no information from anyone.</p>
+
+      <h2>changes</h2>
+      <p>if this policy changes, the new version goes up on this page with a new effective date.</p>
+
+      <h2>contact</h2>
+      <p>
+        questions go to <a href="mailto:admin@blueshelter.net">admin@blueshelter.net</a> or
+        the <a href={`${REPO_URL}/issues`}>issue tracker</a>.
+      </p>
+    </article>
+  </main>
+
+  <Footer />
+</Base>
+
+<style is:global>
+  /* The muted tint of the home page's privacy section; this page has no
+     sections for the scroll-driven tint to follow. */
+  :root {
+    --tint-a: #1c1b22;
+    --tint-b: #23202b;
+  }
+</style>
+
+<style>
+  .policy-top {
+    padding-top: 1.5rem;
+  }
+
+  .policy-top__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font: 700 1.3rem/1 var(--font-display);
+    letter-spacing: -0.03em;
+    text-decoration: none;
+  }
+
+  .policy-top__mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .policy-page {
+    padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .policy {
+    max-width: calc(var(--measure) + 2 * var(--gutter));
+    margin-inline: auto;
+    color: var(--ink-2);
+  }
+
+  .policy :where(h1) {
+    color: var(--ink);
+  }
+
+  .policy__date {
+    margin-top: 1rem;
+    color: var(--ink-3);
+  }
+
+  .policy h2 {
+    margin-top: 2.75rem;
+    color: var(--ink);
+    font-size: var(--step-1);
+    letter-spacing: -0.02em;
+  }
+
+  .policy h2 + p,
+  .policy h2 + ul {
+    margin-top: 0.85rem;
+  }
+
+  .policy ul {
+    margin: 0.85rem 0 0;
+    padding-left: 1.2rem;
+  }
+
+  .policy li + li {
+    margin-top: 0.6rem;
+  }
+
+  .policy ul + p {
+    margin-top: 0.85rem;
+  }
+
+  .policy strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+</style>
