@@ -1,0 +1,144 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import Footer from "../components/Footer.astro";
+import logo from "../assets/brand/logo.png";
+import { REPO_URL } from "../lib/release";
+---
+
+<Base title="support · ramus" description="How to get help with ramus, report a bug or ask a question.">
+  <header class="wrap policy-top">
+    <a class="policy-top__brand" href="/" aria-label="ramus, home">
+      <Image src={logo} alt="" width={64} height={64} class="policy-top__mark" loading="eager" />
+      <span>ramus</span>
+    </a>
+  </header>
+
+  <main id="main" class="section policy-page">
+    <article class="wrap policy">
+      <h1 class="headline">
+        support. <span class="more">something broken? tell me.</span>
+      </h1>
+
+      <p class="lede">
+        ramus is made by one person. if something's broken, confusing or missing, get in touch and i'll take a look.
+      </p>
+
+      <h2>get in touch</h2>
+      <ul>
+        <li>
+          <strong>email</strong> <a href="mailto:admin@blueshelter.net">admin@blueshelter.net</a>. works for anything,
+          no account needed.
+        </li>
+        <li>
+          <strong>the <a href={`${REPO_URL}/issues`}>issue tracker</a></strong> on github, for bugs and feature requests.
+          you can check whether someone's already reported the same thing. it needs a free github account.
+        </li>
+        <li>
+          <strong>security problems</strong>: please don't open a public issue. report them privately
+          through <a href={`${REPO_URL}/security/advisories/new`}>github security advisories</a>.
+        </li>
+      </ul>
+
+      <h2>reporting a bug</h2>
+      <p>ramus collects nothing, so all i know about a bug is what you send me. these help:</p>
+      <ul>
+        <li>your device and its system version, e.g. iPhone 16 on iOS 26.</li>
+        <li>what you did, what you expected, and what happened instead.</li>
+        <li>a screenshot or screen recording, if it's something you can see.</li>
+        <li>your plex media server version, if it's about playback or syncing.</li>
+      </ul>
+
+      <h2>before you write</h2>
+      <ul>
+        <li>
+          ramus plays music from your own plex media server. it has no music and no accounts of its own; you sign in with
+          your plex account.
+        </li>
+        <li>
+          if ramus can't reach your server away from home, check that remote access is turned on in your server's
+          settings.
+        </li>
+        <li>
+          how the features work (search operators, filters, crates, custom genre trees) is in
+          the <a href={`${REPO_URL}#readme`}>readme</a>.
+        </li>
+        <li>
+          ramus isn't made by plex. problems with your plex account or the server itself are best taken
+          to <a href="https://support.plex.tv/">plex support</a>.
+        </li>
+      </ul>
+    </article>
+  </main>
+
+  <Footer />
+</Base>
+
+<style is:global>
+  /* The privacy page's muted tint; this page has no sections for the
+     scroll-driven tint to follow. */
+  :root {
+    --tint-a: #1c1b22;
+    --tint-b: #23202b;
+  }
+</style>
+
+<style>
+  .policy-top {
+    padding-top: 1.5rem;
+  }
+
+  .policy-top__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font: 700 1.3rem/1 var(--font-display);
+    letter-spacing: -0.03em;
+    text-decoration: none;
+  }
+
+  .policy-top__mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .policy-page {
+    padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .policy {
+    max-width: calc(var(--measure) + 2 * var(--gutter));
+    margin-inline: auto;
+    color: var(--ink-2);
+  }
+
+  .policy :where(h1) {
+    color: var(--ink);
+  }
+
+  .policy h2 {
+    margin-top: 2.75rem;
+    color: var(--ink);
+    font-size: var(--step-1);
+    letter-spacing: -0.02em;
+  }
+
+  .policy h2 + p,
+  .policy h2 + ul {
+    margin-top: 0.85rem;
+  }
+
+  .policy ul {
+    margin: 0.85rem 0 0;
+    padding-left: 1.2rem;
+  }
+
+  .policy li + li {
+    margin-top: 0.6rem;
+  }
+
+  .policy strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+</style>
