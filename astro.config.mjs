@@ -50,4 +50,13 @@ export default defineConfig({
       },
     },
   ],
+  vite: {
+    build: {
+      // Astro builds for esnext, which leaves the CSS minifier without browser
+      // targets, so it writes syntax browsers don't parse yet (e.g. folding
+      // animation-timeline into the animation shorthand). This is Vite's own
+      // baseline-widely-available set.
+      cssTarget: ["chrome111", "edge111", "firefox114", "safari16.4", "ios16.4"],
+    },
+  },
 });

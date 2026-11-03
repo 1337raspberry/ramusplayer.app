@@ -58,33 +58,30 @@ const phones = [
     margin-top: clamp(3rem, 7vw, 5rem);
   }
 
-  /* A fan of four. The offsets live on transform because the scroll-driven
-     rise animates translate, which would otherwise replace them. */
+  /* A fan of four. Tilt and offset share one transform: the scroll-driven
+     rise animates translate, which would replace a translate here, and the
+     CSS minifier drops a rotate that sits beside a transform. */
   .phones__item {
     width: min(25%, 280px);
     filter: drop-shadow(0 30px 40px rgb(0 0 0 / 0.5));
   }
 
   .phones__item:nth-child(1) {
-    rotate: -7deg;
-    transform: translate(10%, 9%);
+    transform: rotate(-7deg) translate(10%, 9%);
   }
 
   .phones__item:nth-child(2) {
     z-index: 1;
-    rotate: -2deg;
-    transform: translate(3%, 0);
+    transform: rotate(-2deg) translate(3%, 0);
   }
 
   .phones__item:nth-child(3) {
     z-index: 1;
-    rotate: 2deg;
-    transform: translate(-3%, 0);
+    transform: rotate(2deg) translate(-3%, 0);
   }
 
   .phones__item:nth-child(4) {
-    rotate: 7deg;
-    transform: translate(-10%, 9%);
+    transform: rotate(7deg) translate(-10%, 9%);
   }
 
   /* Two by two, each pair leaning in. */
@@ -98,13 +95,11 @@ const phones = [
     }
     .phones__item:nth-child(odd) {
       z-index: 0;
-      rotate: -4deg;
-      transform: translate(5%, 3%);
+      transform: rotate(-4deg) translate(5%, 3%);
     }
     .phones__item:nth-child(even) {
       z-index: 1;
-      rotate: 4deg;
-      transform: translate(-5%, 3%);
+      transform: rotate(4deg) translate(-5%, 3%);
     }
   }
 </style>
