@@ -3,11 +3,13 @@ import { Picture } from "astro:assets";
 import library from "../assets/shots/mobile-library.webp";
 import nowPlaying from "../assets/shots/mobile-np.webp";
 import lyrics from "../assets/shots/mobile-lyrics.webp";
+import widgets from "../assets/shots/mobile-widgets.webp";
 
 const phones = [
   { src: library, alt: "ramus on iPhone: the genre tree open at Hardcore Punk › Post-Hardcore › Emo, with AFI playing in the mini player." },
   { src: nowPlaying, alt: "ramus on iPhone: the now playing screen with album art and a waveform scrubber." },
   { src: lyrics, alt: "ramus on iPhone: synced lyrics for Phoebe Bridgers' Graceland Too, the current line in red above the waveform and playback controls." },
+  { src: widgets, alt: "ramus on an iPhone home screen: medium and large now playing widgets for AFI's The Lost Souls, each with album art, a waveform and playback controls." },
 ];
 ---
 
@@ -28,7 +30,7 @@ const phones = [
             src={p.src}
             formats={["avif", "webp"]}
             widths={[300, 460, 700]}
-            sizes="(min-width: 900px) 300px, 42vw"
+            sizes="(min-width: 1120px) 280px, (min-width: 641px) 23vw, 42vw"
             alt={p.alt}
           />
         </div>
@@ -56,35 +58,53 @@ const phones = [
     margin-top: clamp(3rem, 7vw, 5rem);
   }
 
+  /* A fan of four. The offsets live on transform because the scroll-driven
+     rise animates translate, which would otherwise replace them. */
   .phones__item {
-    width: min(30%, 300px);
+    width: min(25%, 280px);
     filter: drop-shadow(0 30px 40px rgb(0 0 0 / 0.5));
   }
 
   .phones__item:nth-child(1) {
-    rotate: -6deg;
-    translate: 9% 6%;
+    rotate: -7deg;
+    transform: translate(10%, 9%);
   }
 
   .phones__item:nth-child(2) {
     z-index: 1;
+    rotate: -2deg;
+    transform: translate(3%, 0);
   }
 
   .phones__item:nth-child(3) {
-    rotate: 6deg;
-    translate: -9% 6%;
+    z-index: 1;
+    rotate: 2deg;
+    transform: translate(-3%, 0);
   }
 
+  .phones__item:nth-child(4) {
+    rotate: 7deg;
+    transform: translate(-10%, 9%);
+  }
+
+  /* Two by two, each pair leaning in. */
   @media (max-width: 640px) {
+    .phones__row {
+      flex-wrap: wrap;
+      row-gap: 1.5rem;
+    }
     .phones__item {
-      width: 44%;
+      width: 46%;
     }
-    /* Keep the genre-tree phone; the lyrics phone gives way. */
-    .phones__item:nth-child(3) {
-      display: none;
+    .phones__item:nth-child(odd) {
+      z-index: 0;
+      rotate: -4deg;
+      transform: translate(5%, 3%);
     }
-    .phones__item:nth-child(1) {
-      translate: 6% 4%;
+    .phones__item:nth-child(even) {
+      z-index: 1;
+      rotate: 4deg;
+      transform: translate(-5%, 3%);
     }
   }
 </style>
